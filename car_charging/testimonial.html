@@ -126,7 +126,7 @@
                 <div class="testimonial-text text-center rounded p-4">
                     <p>I loved the station's location and easy access. The charging process was very smooth, and I will recommend it to all my friends who own electric cars.</p>
                     <h5 class="mb-1">Donia</h5>
-                    <span class="fst-italic">Doctor</span>
+                    <!-- <span class="fst-italic">Doctor</span> -->
                 </div>
             </div>
             <div class="testimonial-item text-center">
@@ -139,7 +139,7 @@
                 <div class="testimonial-text text-center rounded p-4">
                     <p>This charging station is the best! Not only because shipping is fast and effective, but also because technical support is available around the clock. Thank you for the great service!</p>
                     <h5 class="mb-1">Abdullah Jaber</h5>
-                    <span class="fst-italic">Driver</span>
+                    <!-- <span class="fst-italic">Driver</span> -->
                 </div>
             </div>
             <div class="testimonial-item text-center">
@@ -152,12 +152,38 @@
                 <div class="testimonial-text text-center rounded p-4">
                     <p>My experience at the charging station was great! Shipping was fast and easy, and the support team was there to answer all my inquiries. I'll definitely be back again.</p>
                     <h5 class="mb-1">Mohammad Jalal</h5>
-                    <span class="fst-italic">Engineer</span>
+                    <!-- <span class="fst-italic">Engineer</span> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Testimonial Submission Form -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h2 class="display-6 mb-4">Submit Your Testimonial</h2>
+        </div>
+        <form action="submit_testimonial.php" method="POST" class="wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Your Testimonial" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary py-3 px-5">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!-- Testimonial End -->
         
 

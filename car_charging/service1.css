@@ -32,3 +32,7 @@
     .theselect1{
         width: 100%;
     }
+   
+    .btn-dark:hover {
+        color: #bbbaba; /* لون أغمق عند التمرير */
+    }

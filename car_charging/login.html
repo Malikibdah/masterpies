@@ -109,33 +109,36 @@
           <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-          <form action="#" class="login">
+          <form id="loginform" class="login">
             <div class="field">
               <input type="text" placeholder="Email Address" required>
             </div>
             <div class="field">
               <input type="password" placeholder="Password" required>
             </div>
-            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="pass-link"><a href="emailforotp.html">Forgot password?</a></div>
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Login">
             </div>
             <div class="signup-link">Not a member? <a href="">Signup now</a></div>
           </form>
-          <form action="#" class="signup">
+          <form id="regesterform" class="signup">
             <div class="field">
-              <input type="text" placeholder="Email Address" required>
+              <input type="text" name="userName" placeholder="Name" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Password" required>
+              <input type="text" name="email" placeholder="Email Address" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Confirm password" required>
+              <input type="password" id="password" name="Password" placeholder="Password" required>
+            </div>
+            <div class="field">
+              <input type="password" id="confirmpassword" placeholder="Confirm password" required>
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
-              <input type="submit" value="Signup">
+              <input type="submit" onclick="Regester()" value="Signup">
             </div>
           </form>
         </div>

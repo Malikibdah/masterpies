@@ -107,11 +107,11 @@
                                     class="img-fluid"
                                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
                             </div>
-                            <div class="col-xl-6">
-                                <div class="card-body p-md-5 text-black">
-                                    <h3 class="mb-5 text-uppercase">Vehicle Computer Inspection</h3>
+                            <form class="col-xl-6">
+                                <div class="card-body pe-5 ps-5 text-black">
+                                    <h3 class="mb-5 text-uppercase">Vehicle Computer Inspection And Maintenance</h3>
 
-                                    <div class="col-md-6 mb-4 theselect1">
+                                    <div class="col-md-6 mb-2 theselect1">
                                         <select class="form-select" aria-label="Charger Type">
                                             <option selected>Select City</option>
                                             <option value="1">Irbid</option>
@@ -121,53 +121,52 @@
 
                                         </select>
                                     </div>
-                                    <!-- <div class="row">
-                        <div class="col-md-6 mb-4">
-                          <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form3Example1m">Date</label>
-                            <input type="datetime" id="form3Example1m" class="form-control form-control-lg" />
-                          </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                          <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form3Example1n">Time</label>
-                            <input type="time" id="form3Example1n" class="form-control form-control-lg" /> 
-                          </div>
-                        </div>
-                      </div> -->
-
-                                    <div data-mdb-input-init class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example8">Inter Your Location (URL)</label>
+                                    <div data-mdb-input-init class="form-outline mb-1">
+                                        <label class="form-label" for="form3Example8">Inter Your Location
+                                            (URL)</label>
                                         <input type="url" id="form3Example8" class="form-control form-control-lg" />
 
                                     </div>
-                                    <div data-mdb-input-init class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example8">Phone Number</label>
-                                        <input type="number" id="form3Example8" class="form-control form-control-lg" />
+                                    <div data-mdb-input-init class="form-outline mb-1">
+                                        <label class="form-label" for="form3Example8">Car Plate Number</label>
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" />
                                     </div>
+                                    <div data-mdb-input-init class="form-outline mb-1">
+                                        <label class="form-label" for="form3Example8">Phone Number</label>
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                                    </div>
+
                                 </div>
                                 <div class="col-md-6 mb-4 theselect">
                                     <select class="form-select" aria-label="Charger Type">
                                         <option selected>Select Car Type</option>
-                                        <option value="1">Charger 1</option>
-                                        <option value="2">Charger 2</option>
-                                        <option value="3">Charger 3</option>
+                                        <option value="1">Nissan</option>
+                                        <option value="2">Toyota</option>
+                                        <option value="3">Changan</option>
+                                        <option value="4">BYD</option>
+                                        <option value="5">Hyundai</option>
+                                        <option value="6">Honda</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-4 theselect">
                                     <select class="form-select" aria-label="Charger Type">
-                                        <option selected>Select Car Model</option>
-                                        <option value="1">Charger 1</option>
-                                        <option value="2">Charger 2</option>
-                                        <option value="3">Charger 3</option>
+                                        <option selected>Select Car Class</option>
+                                        <option value="1">Class 1</option>
+                                        <option value="2">Class 2</option>
+                                        <option value="3">Class 3</option>
                                     </select>
                                 </div>
-                                <div class="d-flex justify-content-center pt-3">
+                                <div class="col-md-6 mb-4 theselect">
+                                    <select id="yearselect" class="form-select" aria-label="Charger Type">
+                                        <option selected>Select Manufacturing Date</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-center pt-3 mb-2">
                                     <button type="button" data-mdb-button-init data-mdb-ripple-init
                                         class="btn btn-primary btn-lg ms-2">Submit form</button>
                                 </div>
-
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -258,6 +257,16 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        //اضافة سنوات الصنع للسيارات وفقا لما احدده انا من تاريخ بداية وتاريخ نهاية
+        function Manufacturingyear() {
+            let select = document.getElementById("yearselect");
+            for(let i = 2000; i < 2025; i++) {
+            select.innerHTML+= `<option value="${i}">${i}</option>`
+        }
+    }
+    Manufacturingyear();
+    </script>
 </body>
 
 </html>

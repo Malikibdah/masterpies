@@ -14,7 +14,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -33,7 +35,8 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
     <!-- Spinner End -->
@@ -92,7 +95,7 @@
     </nav>
     <!-- Navbar End -->
 
-    
+
 
 
     <!-- Carousel Start -->
@@ -105,8 +108,10 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10 text-start">
-                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">We Serve to save The Nature</p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Electric Vehicle Services And Charging Station</h1>
+                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">We Serve
+                                        to save The Nature</p>
+                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Electric Vehicle
+                                        Services And Charging Station</h1>
                                     <a href="" class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
                                 </div>
                             </div>
@@ -119,8 +124,10 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10 text-start">
-                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">We Serve to save The Nature</p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Smarter Solution For Your Electric Vechicle</h1>
+                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">We Serve
+                                        to save The Nature</p>
+                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Smarter Solution For
+                                        Your Electric Vechicle</h1>
                                     <a href="" class="btn btn-primary py-3 px-5 animated slideInRight">Explore More</a>
                                 </div>
                             </div>
@@ -128,13 +135,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -146,44 +151,53 @@
     <div class="Search">
         <h3 class="h3search">Booking For Charge</h3>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                    <select class="form-select" aria-label="Car Type">
-                        <option selected>Select Car Type</option>
-                        <option value="1">Location 1</option>
-                        <option value="2">Location 2</option>
-                        <option value="3">Location 3</option>
-                    </select>
+            <form>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <input class="form-control" type="text" placeholder="Car Plate Number" />
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <input class="form-control" type="text" placeholder="Phone Number" />
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <input class="form-control" type="time" placeholder="Time" /> 
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <select id="date-select" class="form-select" aria-label="Car Type">
+                            <option selected>Select Date</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <select class="form-select" aria-label="Charger Type">
+                            <option selected>Select Car Type</option>
+                            <option value="1">Nissan</option>
+                            <option value="2">Toyota</option>
+                            <option value="3">Changan</option>
+                            <option value="4">BYD</option>
+                            <option value="5">Hyundai</option>
+                            <option value="6">Honda</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
+                        <select class="form-select" aria-label="Charger Type">
+                            <option selected>Select Charger Type</option>
+                            <option value="1">Level 1 : 110 V</option>
+                            <option value="2">Level 2 : 240 V</option>
+                            <option value="3">Level 3 : 480 V</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-1 mx-auto d-flex align-items-end">
+                        <button class="btn searchbtn w-100">Submit</button>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                    <select class="form-select" aria-label="Car Model">
-                        <option selected>Select Car Model</option>
-                        <option value="1">Model 1</option>
-                        <option value="2">Model 2</option>
-                        <option value="3">Model 3</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                    <select class="form-select" aria-label="Charger Type">
-                        <option selected>Select Charger Type</option>
-                        <option value="1">Charger 1</option>
-                        <option value="2">Charger 2</option>
-                        <option value="3">Charger 3</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                    <input class="form-control" type="date" placeholder="Pickup Date"/>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                    <input class="form-control" type="time" placeholder="Pickup Time"/>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-3 d-flex align-items-end">
-                    <button class="btn searchbtn w-100">Search</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-    
+
+
     <!-- Search End -->
 
     <!-- About Start -->
@@ -203,10 +217,11 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="fw-medium text-uppercase text-primary mb-2">About Us</p>
                     <h1 class="display-5 mb-4">We Are Leader In Electrical Cars Charging</h1>
-                    <p class="mb-4">We are the leading installer of modern electric vehicle charging & Maintian System</p>
+                    <p class="mb-4">We are the leading installer of modern electric vehicle charging & Maintian System
+                    </p>
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-shrink-0 bg-primary p-4">
-                            <h1 class="display-2">25</h1>
+                            <h1 class="display-2">5</h1>
                             <h5 class="text-white">Years of</h5>
                             <h5 class="text-white">Experience</h5>
                         </div>
@@ -255,7 +270,7 @@
             <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.1s">
                 <div class="text-center border p-5">
                     <i class="fa fa-certificate fa-3x text-white mb-3"></i>
-                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">25</h1>
+                    <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">5</h1>
                     <span class="fs-5 fw-semi-bold text-white">Years Experience</span>
                 </div>
             </div>
@@ -292,7 +307,9 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative me-lg-4">
                         <img class="img-fluid w-100" src="img/تصميم بدون عنوان (2).png" alt="">
-                        <span class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block" style="width: 120px; height: 120px;"></span>
+                        <span
+                            class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block"
+                            style="width: 120px; height: 120px;"></span>
                         <button type="button" class="btn-play" data-bs-toggle="modal"
                             data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
                             <span></span>
@@ -302,7 +319,9 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="fw-medium text-uppercase text-primary mb-2">Why Choosing Us!</p>
                     <h1 class="display-5 mb-4">Few Reasons Why People Choosing Us!</h1>
-                    <p class="mb-4">We have delivered more places to charge than anyone else, and people count on us for charging all day, every day. Now, we have built a fully integrated portfolio of hardware, cloud services and  technology in the industry.</p>
+                    <p class="mb-4">We have delivered more places to charge than anyone else, and people count on us for
+                        charging all day, every day. Now, we have built a fully integrated portfolio of hardware, cloud
+                        services and technology in the industry.</p>
                     <div class="row gy-4">
                         <div class="col-12">
                             <div class="d-flex">
@@ -311,7 +330,8 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>Experienced Workers</h4>
-                                    <span>We are JOcharging proud to employ a team of highly experienced professionals in the field of electric vehicle charging.</span>
+                                    <span>We are JOcharging proud to employ a team of highly experienced professionals
+                                        in the field of electric vehicle charging.</span>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +342,8 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>Electrical Cars Services</h4>
-                                    <span>We provide fast and efficient charging services for electric vehicles in multiple locations and strategically distributed to meet your needs.</span>
+                                    <span>We provide fast and efficient charging services for electric vehicles in
+                                        multiple locations and strategically distributed to meet your needs.</span>
                                 </div>
                             </div>
                         </div>
@@ -333,7 +354,9 @@
                                 </div>
                                 <div class="ms-4">
                                     <h4>24/7 Customer Support</h4>
-                                    <span>In JOcharging, we recognize that the convenience of our customers is our top priority. Therefore, we offer 24/7 customer support to ensure you get the help you need anytime.</span>
+                                    <span>In JOcharging, we recognize that the convenience of our customers is our top
+                                        priority. Therefore, we offer 24/7 customer support to ensure you get the help
+                                        you need anytime.</span>
                                 </div>
                             </div>
                         </div>
@@ -346,7 +369,8 @@
 
 
     <!-- Video Modal Start -->
-    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
@@ -356,8 +380,8 @@
                 <div class="modal-body">
                     <!-- 16:9 aspect ratio -->
                     <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                            allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                            allowscriptaccess="always" allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -387,10 +411,11 @@
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">You can charge your car inside the terminal by pre-booking through our website.</p>
+                                <p class="text-white mb-0">You can charge your car inside the terminal by pre-booking
+                                    through our website.</p>
                             </div>
                         </div>
-                        <a class="btn btn-light" href="">Read More</a>
+                        <a class="btn btn-light" href="service3.html">Book Now</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -402,14 +427,14 @@
                         <div class="service-detail">
                             <div class="service-title">
                                 <hr class="w-25">
-                                <h3 class="mb-0">Vehicle Computer Inspection</h3>
+                                <h3 class="mb-0">Vehicle Computer Inspection And Maintenance</h3>
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">You can contact us through our website to bring to you one of the technicians specializing in the inspection of the vehicle computer wherever you are within the area covered by this service.</p>
+                                <p class="text-white mb-0">You can contact us through our website to bring to you one of the technicians specializing in the inspection of the vehicle computer and Maintenance the wherever you are within the area covered by this service.</p>
                             </div>
                         </div>
-                        <a class="btn btn-light" href="service1.html">Read More</a>
+                        <a class="btn btn-light" href="service1.html">Book Now</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -425,10 +450,12 @@
                                 <hr class="w-25">
                             </div>
                             <div class="service-text">
-                                <p class="text-white mb-0">Execute charging your vehicle's battery? Don't worry, we come to you with a charger to charge your car wherever you are within the area we cover with this service.</p>
+                                <p class="text-white mb-0">Execute charging your vehicle's battery? Don't worry, we come
+                                    to you with a charger to charge your car wherever you are within the area we cover
+                                    with this service.</p>
                             </div>
                         </div>
-                        <a class="btn btn-light" href="service2.html">Read More</a>
+                        <a class="btn btn-light" href="service2.html">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -441,7 +468,7 @@
     <div class="container-fluid bg-dark pt-5 my-5 px-0">
         <div class="text-center mx-auto mt-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="fw-medium text-uppercase text-primary mb-2">Our Projects</p>
-            <h1 class="display-5 text-white mb-5">See What We Have Completed Recently</h1>
+            <h1 class="display-5 text-white mb-5">Discover Our Future Projects</h1>
         </div>
         <div class="owl-carousel project-carousel wow fadeIn" data-wow-delay="0.1s">
             <a class="project-item" href="">
@@ -453,7 +480,7 @@
             <a class="project-item" href="">
                 <img class="img-fluid" src="img/kk2024-07-26 214341.png" alt="">
                 <div class="project-title">
-                    <h5 class="text-primary mb-0">Add 15 chargers</h5>
+                    <h5 class="text-primary mb-0">Add chargers</h5>
                 </div>
             </a>
             <a class="project-item" href="">
@@ -500,14 +527,18 @@
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
-                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4" style="height: 90px;">
+                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                                style="height: 90px;">
                                 <h5>Rob Miller</h5>
                                 <span class="text-primary">CEO & Founder</span>
                                 <div class="team-social">
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>                                                              
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -519,13 +550,17 @@
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
-                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4" style="height: 90px;">
+                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                                style="height: 90px;">
                                 <h5>Adam Crew</h5>
                                 <span class="text-primary">Project Manager</span>
                                 <div class="team-social">
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -538,13 +573,17 @@
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
-                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4" style="height: 90px;">
+                            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                                style="height: 90px;">
                                 <h5>Peter Farel</h5>
                                 <span class="text-primary">Engineer</span>
                                 <div class="team-social">
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -572,9 +611,10 @@
                         </div>
                     </div>
                     <div class="testimonial-text text-center rounded p-4">
-                        <p>I loved the station's location and easy access. The charging process was very smooth, and I will recommend it to all my friends who own electric cars.</p>
+                        <p>I loved the station's location and easy access. The charging process was very smooth, and I
+                            will recommend it to all my friends who own electric cars.</p>
                         <h5 class="mb-1">Donia</h5>
-                        <span class="fst-italic">Doctor</span>
+                        <!-- <span class="fst-italic">Doctor</span> -->
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
@@ -585,9 +625,11 @@
                         </div>
                     </div>
                     <div class="testimonial-text text-center rounded p-4">
-                        <p>This charging station is the best! Not only because shipping is fast and effective, but also because technical support is available around the clock. Thank you for the great service!</p>
+                        <p>This charging station is the best! Not only because shipping is fast and effective, but also
+                            because technical support is available around the clock. Thank you for the great service!
+                        </p>
                         <h5 class="mb-1">Abdullah Jaber</h5>
-                        <span class="fst-italic">Driver</span>
+                        <!-- <span class="fst-italic">Driver</span> -->
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
@@ -598,9 +640,10 @@
                         </div>
                     </div>
                     <div class="testimonial-text text-center rounded p-4">
-                        <p>My experience at the charging station was great! Shipping was fast and easy, and the support team was there to answer all my inquiries. I'll definitely be back again.</p>
+                        <p>My experience at the charging station was great! Shipping was fast and easy, and the support
+                            team was there to answer all my inquiries. I'll definitely be back again.</p>
                         <h5 class="mb-1">Mohammad Jalal</h5>
-                        <span class="fst-italic">Engineer</span>
+                        <!-- <span class="fst-italic">Engineer</span> -->
                     </div>
                 </div>
             </div>
@@ -619,10 +662,14 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+962786217123</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@JOcharging.com</p>
                     <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -646,8 +693,10 @@
                     <h5 class="text-white mb-4">Charge Now </h5>
                     <p>Book an appointment to charge your vehicle now</p>
                     <div class="position-relative w-100">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Your email">
+                        <button type="button"
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
                 </div>
             </div>
@@ -668,7 +717,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -682,6 +732,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dateSelect = document.getElementById('date-select');
+            const today = new Date();
+
+            for (let i = 0; i < 7; i++) {
+                let dateOption = document.createElement('option');
+                let futureDate = new Date();
+                futureDate.setDate(today.getDate() + i); // إضافة أيام
+                const dateStr = futureDate.toISOString().split('T')[0]; // تحويل التاريخ إلى صيغة YYYY-MM-DD
+                dateOption.value = i + 1;
+                dateOption.textContent = dateStr;
+                dateSelect.appendChild(dateOption);
+            }
+        });
+
+    </script>
 </body>
 
 </html>

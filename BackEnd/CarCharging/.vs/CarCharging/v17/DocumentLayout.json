@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\addemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\addemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\adminlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\adminlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\userregesterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\userregesterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\passwordresetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\passwordresetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddEmployeeDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\AddEmployeeDTO.cs",
+              "RelativeDocumentMoniker": "CarCharging\\DTO\\AddEmployeeDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\AddEmployeeDTO.cs",
+              "RelativeToolTip": "CarCharging\\DTO\\AddEmployeeDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T19:27:54.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Models\\Admin.cs",
+              "RelativeToolTip": "CarCharging\\Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T19:27:51.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "resetPasswordDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\resetPasswordDTO.cs",
+              "RelativeDocumentMoniker": "CarCharging\\DTO\\resetPasswordDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\resetPasswordDTO.cs",
+              "RelativeToolTip": "CarCharging\\DTO\\resetPasswordDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:41:34.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminloginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\AdminloginDTO.cs",
+              "RelativeDocumentMoniker": "CarCharging\\DTO\\AdminloginDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\AdminloginDTO.cs",
+              "RelativeToolTip": "CarCharging\\DTO\\AdminloginDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T09:57:55.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\UserController.cs",
+              "RelativeToolTip": "CarCharging\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T07:10:53.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Program.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Program.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Program.cs",
+              "RelativeToolTip": "CarCharging\\Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAACwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T09:45:22.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserRegesterDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\UserRegesterDTO.cs",
+              "RelativeDocumentMoniker": "CarCharging\\DTO\\UserRegesterDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\UserRegesterDTO.cs",
+              "RelativeToolTip": "CarCharging\\DTO\\UserRegesterDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T08:16:22.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "CarCharging\\DTO\\PasswordHasher.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\PasswordHasher.cs",
+              "RelativeToolTip": "CarCharging\\DTO\\PasswordHasher.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T08:04:43.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PasswordResetController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\PasswordResetController.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Controllers\\PasswordResetController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\PasswordResetController.cs",
+              "RelativeToolTip": "CarCharging\\Controllers\\PasswordResetController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAABkAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T12:54:13.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "CarCharging\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAowAwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T14:54:12.738Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
