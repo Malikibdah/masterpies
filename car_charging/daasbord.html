@@ -271,11 +271,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">
+        <a class="nav-link text-white" href="./index.html">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">logout</i>
           </div>
-          <span class="nav-link-text ms-1">Sign Out</span>
+          <span onclick="logout()" class="nav-link-text ms-1">Sign Out</span>
         </a>
       </li>
     </ul>
@@ -403,10 +403,10 @@
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+              <a href="./index.html" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
 
-                <span class="d-sm-inline d-none">Sign Out</span>
+                <span onclick="logout()" class="d-sm-inline d-none">Sign Out</span>
 
               </a>
             </li>
@@ -663,6 +663,13 @@
         updateDateTime();
         // تحديث التاريخ والوقت كل ثانية
         setInterval(updateDateTime, 1000);
+
+  </script>
+  <script>
+    function logout() {
+            localStorage.removeItem("adminId");
+           
+        }
   </script>
 </body>
 

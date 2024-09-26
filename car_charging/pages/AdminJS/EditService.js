@@ -1,7 +1,8 @@
 async function EditService() {
-    id =  localStorage.getItem('serviceId');
+    debugger
+    id = localStorage.getItem('serviceId');
     event.preventDefault();
-    let url = `https://localhost:7077/api/Admin/UpdateService/${id}`;
+    let url = `https://localhost:44326/api/Admin/UpdateService/${id}`;
     let form = document.getElementById("editservice");
     let formData = new FormData(form);
     let response = await fetch(url, {
@@ -9,5 +10,5 @@ async function EditService() {
         body: formData
     });
     alert("Service Edited successfully");
-    
+    localStorage.removeItem('serviceId');
 }

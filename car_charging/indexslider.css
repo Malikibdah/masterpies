@@ -1,0 +1,59 @@
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* لوضع الأسهم على طرفي السلايدر */
+    transform: translateY(-50%);
+}
+
+.owl-nav button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    color: #fff; /* يمكنك تخصيص اللون كما تريد */
+}
+
+.owl-nav button:hover {
+    color: #ccc; /* لون الأسهم عند تمرير الماوس */
+}
+
+.owl-carousel img {
+    width: 100%;  /* التأكد من أن الصور تملأ العرض بالكامل */
+    height: 400px;
+    display: block;  /* إزالة أي فراغات إضافية */
+    margin: 0;
+    padding: 0;
+}
+
+
+.owl-carousel .item {
+    padding: 0;
+    margin: 0;
+}
+
+.owl-carousel {
+    margin: 0;
+    padding: 0;
+}
+
+.owl-item {
+    margin: 0;
+    padding: 0;
+}
+
+.project-carousel {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.project-carousel {
+    overflow: hidden;  /* منع أي عناصر من الظهور خارج الحاوية */
+}
+#projectid {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+

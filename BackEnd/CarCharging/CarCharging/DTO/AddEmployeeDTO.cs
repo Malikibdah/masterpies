@@ -13,9 +13,9 @@ namespace CarCharging.DTO
         [Required]
         public string Jobtitle { get; set; } = null!;
         [Required]
-        public int? PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
         [Required]
-        public int? EmergencyNumber { get; set; }
+        public int EmergencyNumber { get; set; }
         [Required]
         public IFormFile? Image { get; set; }
     }

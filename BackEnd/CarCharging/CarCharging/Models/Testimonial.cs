@@ -15,5 +15,7 @@ public partial class Testimonial
 
     public string? TheTestimonial { get; set; }
 
+    public bool? IsAccepted { get; set; }
+
     public virtual User User { get; set; } = null!;
 }

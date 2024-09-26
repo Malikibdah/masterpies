@@ -147,6 +147,9 @@ public partial class MyDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.IsAccepted)
+                .HasDefaultValue(false)
+                .HasColumnName("isAccepted");
             entity.Property(e => e.TheTestimonial).HasMaxLength(255);
             entity.Property(e => e.UserName).HasMaxLength(255);
 

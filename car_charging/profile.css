@@ -54,7 +54,7 @@ body{
     .btnprofile{
         margin-top: 1%;
         margin-left: 0.5%;
-        border-radius: 5%;
+        border-radius: 3px;
     }
     .btnedit{
       padding:1% 4%;

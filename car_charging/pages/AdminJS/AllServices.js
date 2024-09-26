@@ -1,17 +1,18 @@
 async function GetAllServices() {
-    let url = "https://localhost:7077/api/Admin/GetAllServices";
+    let url = "https://localhost:44326/api/Admin/GetAllServices";
     let response = await fetch(url);
     let data = await response.json();
     let services = document.getElementById("allservices");
+    
     data.forEach(element => {
-        let i =0;
+        
         services.innerHTML += `
         <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
                   <div>
                     <img src="../img/${element.image}" class="avatar avatar-lg me-3 border-radius-lg" alt="user1">
                   </div>
                   <div class="d-flex flex-column">
-                    <h6 class="mb-3 text-sm">Service ${i +1}</h6>
+                    <h6 class="mb-3 text-sm">JOCharging Service</h6>
                     <span class="mb-2 text-xs">Service Name: <span class="text-dark font-weight-bold ms-sm-2">${element.serviceName}</span></span>
                     <span class="mb-2 text-xs">Description <span class="text-dark ms-sm-2 font-weight-bold">${element.description}</span></span>
                   </div>
