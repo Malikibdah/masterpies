@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarCharging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51076c33a5289dc370e1c3b41dfc94c3788c5cc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1afea0a78e6df48f5b06dce1d2828ac6eafccb85")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarCharging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarCharging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

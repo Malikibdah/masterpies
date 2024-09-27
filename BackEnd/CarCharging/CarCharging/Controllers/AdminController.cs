@@ -19,7 +19,8 @@ namespace CarCharging.Controllers
         public IActionResult AdminLogin([FromForm] AdminloginDTO adminLoginDTO)
         {
             var admin = _db.Admins.FirstOrDefault(x => x.Email == adminLoginDTO.Email && x.Password == adminLoginDTO.Password);
-            if (admin == null) {
+            if (admin == null)
+            {
                 return Unauthorized("Invalid username or password.");
             }
             return Ok(admin);
@@ -229,7 +230,7 @@ namespace CarCharging.Controllers
 
             var project = _db.Projects.FirstOrDefault(x => x.Id == id);
             if (project == null)
-            { 
+            {
                 return NotFound();
             }
             _db.Projects.Remove(project);
@@ -279,6 +280,94 @@ namespace CarCharging.Controllers
             _db.SaveChanges();
             return Ok();
         }
-        
+        [HttpGet("GetAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            var users = _db.Users.ToList();
+
+            var lestUsers = new List<GetAllUsersDTO>();
+
+            foreach (var item in users)
+            {
+                var user = new GetAllUsersDTO
+                {
+                    Id = item.Id,
+
+                    UserName = item.UserName,
+
+                    Email = item.Email,
+
+                    PhonrNumber = item.PhonrNumber,
+
+                    CarPlateNumber = item.CarPlateNumber,
+
+                    City = item.City,
+
+                    Street = item.Street,
+
+                    Image = item.Image
+                };
+                lestUsers.Add(user);
+            };
+            return Ok(lestUsers);
+        }
+
+        [HttpPut("UpdateUser/{id}")]
+        public IActionResult UbdateUser(int id, EditUserByAdminDTO editUserByAdminDTO)
+        {
+            if (id == null || id <= 0)
+            {
+                return BadRequest("You can not use null or 0 or negative value for id");
+            }
+            if (editUserByAdminDTO.Image != null)
+            {
+                var uploadFile = @"C:\Users\Orange\Desktop\masterpies\masterpies\car_charging\img";
+
+                if (!Directory.Exists(uploadFile))
+                {
+                    Directory.CreateDirectory(uploadFile);
+                }
+                var imgFile = Path.Combine(uploadFile, editUserByAdminDTO.Image.FileName);
+                using (var steam = new FileStream(imgFile, FileMode.Create))
+                {
+                    editUserByAdminDTO.Image.CopyTo(steam);
+                }
+
+            }
+
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            user.UserName = editUserByAdminDTO.UserName ?? user.UserName;
+            user.Email = editUserByAdminDTO.Email ?? user.Email;
+            user.PhonrNumber = editUserByAdminDTO.PhonrNumber ?? user.PhonrNumber;
+            user.CarPlateNumber = editUserByAdminDTO.CarPlateNumber ?? user.CarPlateNumber;
+            user.City = editUserByAdminDTO.City ?? user.City;
+            user.Street = editUserByAdminDTO.Street ?? user.Street;
+            user.Image = editUserByAdminDTO.Image?.FileName ?? user.Image;
+            _db.Users.Update(user);
+            _db.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpDelete("DeletUser/{id}")]
+        public IActionResult DeletUser(int id)
+        {
+            if (id <= 0 || id == null)
+            {
+                return BadRequest("You can not use null or 0 or negative value for id");
+            }
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null) 
+            { 
+                return NotFound();
+            }
+            _db.Users.Remove(user);
+            _db.SaveChanges();
+            return Ok();
+        }
     }
 }

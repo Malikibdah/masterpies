@@ -41,7 +41,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside
+    <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
         id="sidenav-main">
 
@@ -128,14 +128,15 @@
                     <!-- Collapsible content -->
                     <div class="collapse" id="collapseBooking">
                         <ul class="navbar-nav ms-3">
-                          <li class="nav-item">
-                            <a class="nav-link text-white" href="/pages/AllBookings.html">
-                              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">select_all</i>
-                              </div>
-                              <span class="nav-link-text ms-1">All Bookings</span>
-                            </a>
-                          </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/pages/AllBookings.html">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">select_all</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">All Bookings</span>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/pages/VechicleChargingRequests.html">
                                     <div
@@ -294,9 +295,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Projects</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Users</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Projects</h6>
+                    <h6 class="font-weight-bolder mb-0">Users</h6>
 
                 </nav>
                 <!-- <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -421,36 +422,67 @@
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
-         
+
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Add Project</h6>
+                                <h6 class="text-white text-capitalize ps-3">Edit User</h6>
                             </div>
                         </div>
                         <div class="container mt-5" style="max-width: 1000px;">
-                          <form id="addprojectform">
-                            <div class="row mb-5">
-                                <div class="col-md-6">
-                                    <label for="ProjectName" class="form-label">Project Name</label>
-                                    <input type="text" name="projectName" class="form-control" id="ProjectName"
-                                        placeholder="Enter Project Name"
-                                        style="background-color: #e9ecef; border: 1px solid #17a2b8; color: #495057;padding-left: 10px;">
+                            <form id="edituserform">
+                                <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <label for="UserName" class="form-label">User Name</label>
+                                        <input type="text" name="userName" class="form-control" id="UserName"
+                                            placeholder="Enter User Name"
+                                            style="background-color: #e9ecef; border: 1px solid #17a2b8; color: #495057;padding-left: 10px;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UserEmail" class="form-label">User Email</label>
+                                        <input type="text" name="email" class="form-control " id="UserEmail"
+                                            placeholder="Enter User Email"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UserPhoneNumber" class="form-label">User Phone Number</label>
+                                        <input type="text" name="phonrNumber" class="form-control " id="UserPhoneNumber"
+                                        placeholder="Enter User Phone Number"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UserCarPlateNumber" class="form-label">User Car Plate Number</label>
+                                        <input type="text" name="carPlateNumber" class="form-control " id="UserCarPlateNumber"
+                                        placeholder="Enter User Car Plate Number"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UserCity" class="form-label">User City</label>
+                                        <input type="text" name="city" class="form-control " id="UserCity"
+                                        placeholder="Enter User City"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UserStreet" class="form-label">User Street</label>
+                                        <input type="text" name="street" class="form-control " id="UserStreet"
+                                        placeholder="Enter User Street"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="UsertImage" class="form-label">User Image</label>
+                                        <input type="file" name="image" class="form-control " id="UsertImage"
+                                            style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                    </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="ProjectImage" class="form-label">Project Image</label>
-                                    <input type="file" name="image" class="form-control " id="ProjectImage"
-                                        style="border: 1px solid #17a2b8;padding-left: 10px;background-color: #e9ecef">
+                                <div class="row">
+                                    <div class="col-12 text-center mb-5">
+                                        <button type="submit" onclick="EditUser()"
+                                            class="btn btn-success ps-7 pe-7">Submit</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 text-center mb-5">
-                                    <button type="submit" onclick="AddProject()" class="btn btn-success ps-7 pe-7">Submit</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -559,7 +591,8 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
-    <script src="AdminJS/AddProject.js"></script>
+    <script src="AdminJS/EditProject.js"></script>
+    <script src="AdminJS/EditUser.js"></script>
 </body>
 
 </html>
