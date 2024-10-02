@@ -235,52 +235,71 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
         async function bookingcharger() {
-            debugger
-            event.preventDefault();
-            let user = localStorage.getItem("userId");
-            if (user == null || user == undefined) {
-                alert("You must be logged in to book a charger");
-                return;
-            }
-            let url = `https://localhost:44326/api/Booking/BookingDeliveryCharger/${user}`;
-            let form = document.getElementById("deliverychargerform");
-            let data = new FormData(form);
-            let response = await fetch(url, {
-                method: 'POST',
-                body: data
+    debugger;
+    event.preventDefault();
+    
+    let user = localStorage.getItem("userId");
+    if (user == null || user == undefined) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Not Logged In',
+            text: 'You must be logged in to book a charger',
+        });
+        return;
+    }
+
+    // عرض SweetAlert للتأكيد
+    const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to book a charger?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, book it!',
+        cancelButtonText: 'No, cancel!',
+    });
+
+    if (result.isConfirmed) {
+        // إذا تم اختيار تأكيد، يتم إرسال طلب الحجز
+        let url = `https://localhost:44326/api/Booking/BookingDeliveryCharger/${user}`;
+        let form = document.getElementById("deliverychargerform");
+        let data = new FormData(form);
+        let response = await fetch(url, {
+            method: 'POST',
+            body: data
+        });
+
+        if (response.ok) {
+            // إذا تم الحجز بنجاح
+            await Swal.fire({
+                icon: 'success',
+                title: 'Booked!',
+                text: 'Your charger has been booked successfully.',
             });
-            if (response.ok) {
-                // let booking = await response.json();
-                alert("Booking successful." );
-
-                // // إنشاء كائن jsPDF
-                // const { jsPDF } = window.jspdf;
-                // const doc = new jsPDF();
-
-                // // إضافة نص إلى ملف PDF
-                // doc.text("Booking Confirmation", 10, 10);
-                // doc.text("Your booking ID is: " + booking.id, 10, 20);
-                // doc.text("Charger Details:"+booking.chargerType, 10, 30);
-                // doc.text("Location: " + booking.theLoction, 10, 40);
-                // doc.text("Car Plate Number: " + booking.carPlateNumber, 10, 50);
-                // doc.text("Car Type: " + booking.carType, 10, 60);
-                // doc.text("City: " + booking.city, 10, 70);
-
-
-                // // تنزيل ملف PDF
-                // doc.save("booking-confirmation.pdf");
-
-                // // إعادة تعيين النموذج
-                // form.reset();
-            }
-
+        } else {
+            // إذا فشل الحجز
+            await Swal.fire({
+                icon: 'error',
+                title: 'Failed!',
+                text: 'Failed to book the charger. Please try again.',
+            });
         }
+    } else {
+        // إذا تم اختيار إلغاء
+        Swal.fire({
+            icon: 'info',
+            title: 'Cancelled',
+            text: 'Your booking request has been cancelled.',
+        });
+    }
+}
+
     </script>
     <script>
         function showLogin() {

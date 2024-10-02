@@ -32,6 +32,8 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="service1.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -104,37 +106,43 @@
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Inter Your Location
                                             (URL)</label>
-                                        <input type="url" name="theLocation" id="form3Example8" class="form-control form-control-lg" />
+                                        <input type="url" name="theLocation" id="form3Example8"
+                                            class="form-control form-control-lg" />
 
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Plate Number</label>
-                                        <input type="text" name="carPlateNmber" id="form3Example8" class="form-control form-control-lg" />
+                                        <input type="text" name="carPlateNmber" id="form3Example8"
+                                            class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Phone Number</label>
-                                        <input type="text" name="phoneNumber" id="form3Example8" class="form-control form-control-lg" />
+                                        <input type="text" name="phoneNumber" id="form3Example8"
+                                            class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Type</label>
-                                        <input type="text" name="carType" id="form3Example8" class="form-control form-control-lg" />
+                                        <input type="text" name="carType" id="form3Example8"
+                                            class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Class</label>
-                                        <input type="text" name="carClass" id="form3Example8" class="form-control form-control-lg" />
+                                        <input type="text" name="carClass" id="form3Example8"
+                                            class="form-control form-control-lg" />
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="col-md-6 mb-4 theselect">
-                                    <select id="yearselect" name="manufacturingDate" class="form-select" aria-label="Charger Type">
+                                    <select id="yearselect" name="manufacturingDate" class="form-select"
+                                        aria-label="Charger Type">
                                         <option selected>Select Manufacturing Date</option>
 
                                     </select>
                                 </div>
                                 <div class="d-flex justify-content-center pt-3 mb-2">
-                                    <button type="submit" onclick="bookingcomputerchecker()" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary btn-lg ms-2">Submit form</button>
+                                    <button type="submit" onclick="bookingcomputerchecker()" data-mdb-button-init
+                                        data-mdb-ripple-init class="btn btn-primary btn-lg ms-2">Submit form</button>
                                 </div>
                             </form>
                         </div>
@@ -224,32 +232,70 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
         async function bookingcomputerchecker() {
-            debugger
+            debugger;
             event.preventDefault();
+
             let user = localStorage.getItem("userId");
             if (user == null || user == undefined) {
-                alert("You must be logged in to book a computer check");
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Not Logged In',
+                    text: 'You must be logged in to book a computer check',
+                });
                 return;
             }
-            let url = `https://localhost:44326/api/Booking/BookingComputerCheck/${user}`;
-            let form = document.getElementById("computercheckform");
-            let data = new FormData(form);
-            let response = await fetch(url, {
-                method: 'POST',
-                body: data
+
+            // استخدام SweetAlert لإضافة خيار التأكيد أو الإلغاء
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you want to book a computer check?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, book it!',
+                cancelButtonText: 'No, cancel!',
             });
-            if (response.ok) {
-                // let booking = await response.json();
-                alert("Booking successful." );
 
+            if (result.isConfirmed) {
+                // إذا تم اختيار "تأكيد" يقوم بإرسال طلب الحجز
+                let url = `https://localhost:44326/api/Booking/BookingComputerCheck/${user}`;
+                let form = document.getElementById("computercheckform");
+                let data = new FormData(form);
+                let response = await fetch(url, {
+                    method: 'POST',
+                    body: data
+                });
+
+                if (response.ok) {
+                    // إذا تم الحجز بنجاح
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Booked!',
+                        text: 'Your computer check has been booked successfully.',
+                    });
+                } else {
+                    // إذا فشل الحجز
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Failed!',
+                        text: 'Failed to book the computer check. Please try again.',
+                    });
+                }
+            } else {
+                // إذا تم اختيار "إلغاء"
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Cancelled',
+                    text: 'Your booking request has been cancelled.',
+                });
             }
-
         }
+
     </script>
     <script>
         //اضافة سنوات الصنع للسيارات وفقا لما احدده انا من تاريخ بداية وتاريخ نهاية
@@ -283,7 +329,7 @@
         showLogin();
         function logout() {
             localStorage.removeItem("userId");
-          
+
         }
     </script>
 </body>

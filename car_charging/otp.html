@@ -183,33 +183,43 @@
   <script src="lib/waypoints/waypoints.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/counterup/counterup.min.js"></script>
+   <!-- إضافة مكتبة SweetAlert2 -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
   <script>
-    async function verifyOtp() {
-      debugger;
-      event.preventDefault();
-      const OTP = document.getElementById("Otpinput");
-      var userEmail = sessionStorage.getItem("useremail");
-      let url = "https://localhost:44326/api/PasswordReset/verify-otp";
-      let data = { email: userEmail, otp: OTP.value };
-      var response = await fetch(
-        url, {
+   async function verifyOtp() {
+    event.preventDefault();
+    const OTP = document.getElementById("Otpinput").value; // استرداد قيمة OTP
+    var userEmail = sessionStorage.getItem("useremail");
+    let url = "https://localhost:44326/api/PasswordReset/verify-otp";
+    let data = { email: userEmail, otp: OTP };
+
+    var response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
+            "Content-Type": "application/json"
         }
-      }
-      );
-      if (response.status == 200) {
-        alert("Password Reset Successfully");
-        window.location.href = "resetpassword.html";
-      } else {
-        alert("Password Reset Failed");
-      }
+    });
+
+    if (response.status == 200) {
+        await Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'The OTP Entered  Successfully',
+        });
+        window.location.href = "resetpassword.html"; // الانتقال إلى صفحة إعادة تعيين كلمة المرور بعد عرض التنبيه
+    } else {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Failed to Reset Password',
+            text: 'The OTP Entered  Failed. Please try again.',
+        });
     }
+}
+
   </script>
   <script>
     function showLogin() {

@@ -246,7 +246,7 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white" href="/pages/Testimonial.html">
+                          <a class="nav-link text-white" href="./Testimonial.html">
                               <div
                                   class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                   <i class="material-icons opacity-10">reply</i>
@@ -273,7 +273,7 @@
           </li>
 
           <li class="nav-item">
-              <a class="nav-link text-white" href="#">
+              <a class="nav-link text-white" onclick="logout()" href="../login.html">
                   <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i class="material-icons opacity-10">logout</i>
                   </div>
@@ -403,7 +403,7 @@
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+              <a href="../login.html" onclick="logout()" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
 
                 <span class="d-sm-inline d-none">Sign Out</span>
@@ -531,6 +531,14 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
   <script src="AdminJS/AllServices.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function logout() {
+            localStorage.removeItem("adminId");
+           
+        }
+  </script>
 </body>
 
 </html>

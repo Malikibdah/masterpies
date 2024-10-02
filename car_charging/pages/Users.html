@@ -237,7 +237,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/pages/Testimonial.html">
+                <a class="nav-link text-white" href="./Testimonial.html">
                   <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="material-icons opacity-10">reply</i>
                   </div>
@@ -263,7 +263,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
+          <a class="nav-link text-white" onclick="logout()" href="../login.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">logout</i>
             </div>
@@ -394,7 +394,7 @@
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+              <a href="../login.html" onclick="logout()" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign Out</span>
               </a>
@@ -417,9 +417,9 @@
               <div class="table-responsive p-0">
 
                 <div class="d-flex align-items-center">
-                  <input class="form-control me-2 ms-3 ps-2 border" type="search"
+                  <input id="CarPlateNumber" class="form-control me-2 ms-3 ps-2 border" type="search"
                     placeholder="Search by car plate number" aria-label="Search" style="width: 300px;">
-                  <button class="btn btn-success mt-3" type="submit">Search</button>
+                  <button class="btn btn-success mt-3" onclick="filterUserByCarPlateNumber()" type="submit">Search</button>
                 </div>
 
                 <table class="table align-items-center mb-0">
@@ -580,6 +580,8 @@
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -593,7 +595,15 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script src="AdminJS/AllUsers.js"></script>
+  <script>
+    function logout() {
+            localStorage.removeItem("adminId");
+           
+        }
+  </script>
 </body>
 
 </html>

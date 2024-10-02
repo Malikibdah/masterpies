@@ -119,6 +119,7 @@
                                     <div class="col-md-6 mb-4 pe-3 theselect1">
                                         <select id="date-select" name="date" class="form-select"
                                             aria-label="Select Date">
+                                            <option value="">Select Date</option>
                                             <!-- سيتم تعبئتها تلقائيًا من خلال JavaScript -->
                                         </select>
                                     </div>
@@ -126,7 +127,7 @@
                                     <div class="col-md-6 mb-4 pe-3 theselect1">
                                         <select class="form-select" id="checktime" name="time"
                                             aria-label="Charger Type">
-                                            <option selected>Select Time</option>
+                                            <option value="">Select Time</option>
                                             <option value="1">1 - 2 AM</option>
                                             <option value="2">2 - 3 AM</option>
                                             <option value="3">3 - 4 AM</option>
@@ -260,63 +261,132 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
         async function bookingInstation() {
-            debugger
+            debugger;
             event.preventDefault();
             let user = localStorage.getItem("userId");
             if (user == null || user == undefined) {
-                alert("You must be logged in to book In Station");
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Not Logged In',
+                    text: 'You must be logged in to book In Station.',
+                });
                 return;
             }
-            async function checkForBooking() {
 
+            async function checkForBooking() {
+                event.preventDefault();
                 let time = document.getElementById("checktime").value;
                 let date = document.getElementById("date-select").value;
-                let url = `https://localhost:44326/api/Booking/CheckforAvailableChager/${date}/${time}`;
-                event.preventDefault();
-                let response = await fetch(url);
-                if (response.ok) {
-                    let user = localStorage.getItem("userId");
-                    let url = `https://localhost:44326/api/Booking/BookingInTheStation/${user}`;
-                    let form = document.getElementById("Chargeinstationform");
-                    let data = new FormData(form);
-                    let response = await fetch(url, {
-                        method: 'POST',
-                        body: data
+
+                // التحقق من أن الحقول ليست فارغة
+                if (time == "" || date == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill in both the time and date fields before proceeding.',
                     });
-                    if (response.ok) {
-                        // let booking = await response.json();
-                        alert("Booking successful.");
-
-                    }
+                    return;
                 }
-                else {
-                    alert("It's Not Available You Can't Booking");
-                };
 
+                let url = `https://localhost:44326/api/Booking/CheckforAvailableChager/${date}/${time}`;
+                let response = await fetch(url);
+
+                if (response.ok) {
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Available',
+                        text: "It's Available. You can proceed with booking.",
+                        showCancelButton: true,
+                        confirmButtonText: 'Book Now',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            bookInStation();
+                        }
+                    });
+                } else {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Unavailable',
+                        text: "It's not available for booking at this time.",
+                    });
+                }
+            }
+            
+            //هذا الfunction  الذي يقوم بالحجز ويتم استدعاءه اذا تم الضغط على كبسة booknow
+            async function bookInStation() {
+
+                event.preventDefault();
+                let url = `https://localhost:44326/api/Booking/BookingInTheStation/${user}`;
+                let form = document.getElementById("Chargeinstationform");
+                let data = new FormData(form);
+                let response = await fetch(url, {
+                    method: 'POST',
+                    body: data
+                });
+                if (response.ok) {
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Successful',
+                        text: 'Your booking has been confirmed.',
+                    });
+                } else {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Failed',
+                        text: 'Failed to book the station. Please try again later.',
+                    });
+                }
             }
             checkForBooking();
-
         }
-        async function checkForBooking() {
 
+        async function checkForBooking() {
+            debugger
+            event.preventDefault();
             let time = document.getElementById("checktime").value;
             let date = document.getElementById("date-select").value;
-            let url = `https://localhost:44326/api/Booking/CheckforAvailableChager/${date}/${time}`;
-            event.preventDefault();
-            let response = await fetch(url);
-            if (response.ok) {
-                alert("It's Available You Can Booking");
-            }
-            else {
-                alert("It's Not Available You Can't Booking");
-            };
 
+            // التحقق من أن الحقول ليست فارغة
+            if (time == "" || date == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill in both the time and date fields before proceeding.',
+                });
+                return;
+            }
+
+            let url = `https://localhost:44326/api/Booking/CheckforAvailableChager/${date}/${time}`;
+            let response = await fetch(url);
+
+            if (response.ok) {
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Available',
+                    text: "It's Available. You can proceed with booking.",
+
+                });
+
+            } else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Unavailable',
+                    text: "It's not available for booking at this time.",
+                });
+            }
         }
+
+
+
+
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {

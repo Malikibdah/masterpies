@@ -26,20 +26,52 @@ AllProjects();
 
 async function Deletproject(id) {
     event.preventDefault();
-    let url = `https://localhost:44326/api/Admin/DeleteProject/${id}`;
-    let response = await fetch(url, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+
+    // تأكيد الحذف من المستخدم
+    const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
     });
-    if (response.ok) {
-        alert("Project deleted successfully");
-       window.location.reload();
+
+    // إذا اختار المستخدم "نعم"
+    if (result.isConfirmed) {
+        let url = `https://localhost:44326/api/Admin/DeleteProject/${id}`;
+        let response = await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Project deleted successfully',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed to delete project',
+                confirmButtonText: 'OK'
+            });
+        }
     } else {
-        alert("Failed to delete project");
+        // إذا اختار المستخدم "إلغاء"
+        Swal.fire({
+            icon: 'info',
+            title: 'Deletion canceled',
+            confirmButtonText: 'OK'
+        });
     }
-};
+}
+
 
 function Editproject(id) {
     let project = localStorage.setItem('projectId', id);

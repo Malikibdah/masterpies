@@ -52,7 +52,21 @@ namespace CarCharging.Controllers
             admin.Address = updateAdminDTO.Address ?? admin.Address;
             admin.PhoneNumber = updateAdminDTO.PhoneNumber ?? admin.PhoneNumber;
             admin.Image = updateAdminDTO.Image?.FileName ?? admin.Image;
-            admin.Password = updateAdminDTO.Password ?? admin.Password;
+            _db.Admins.Update(admin);
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpPut("ResetAdminPassword/{id}")]
+        public IActionResult ResetAdminPassword(int id, [FromBody] ResetAdminPasswordDTO resetAdminPasswordDTO)
+        {
+            if (id == null || id <= 0)
+            {
+                return BadRequest("You can not use null or 0 or negative value for id");
+            }
+            var admin = _db.Admins.FirstOrDefault(x => x.Id == id);
+            if (admin == null)
+                return NotFound();
+            admin.Password = resetAdminPasswordDTO.Password;
             _db.Admins.Update(admin);
             _db.SaveChanges();
             return Ok();
@@ -280,6 +294,35 @@ namespace CarCharging.Controllers
             _db.SaveChanges();
             return Ok();
         }
+        [HttpPut("HiddenServiceById/{id}")]
+        public IActionResult HiddenServiceById(int id)
+        {
+            var service = _db.Services.FirstOrDefault(s => s.Id == id);
+            if (service == null)
+            {
+                return NotFound();
+            }
+            service.IsHidden = true;
+            _db.Services.Update(service);
+            _db.SaveChanges();
+            return Ok();
+
+        }
+        [HttpPut("UnhiddenServiceById/{id}")]
+        public IActionResult UnhiddenServiceById(int id)
+        {
+            var service = _db.Services.FirstOrDefault(s => s.Id == id);
+            if (service == null)
+            {
+                return NotFound();
+            }
+            service.IsHidden = false;
+            _db.Services.Update(service);
+            _db.SaveChanges();
+            return Ok();
+
+        }
+
         [HttpGet("GetAllUsers")]
         public IActionResult GetAllUsers()
         {
@@ -361,13 +404,202 @@ namespace CarCharging.Controllers
                 return BadRequest("You can not use null or 0 or negative value for id");
             }
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
-            if (user == null) 
-            { 
+            if (user == null)
+            {
                 return NotFound();
             }
             _db.Users.Remove(user);
             _db.SaveChanges();
             return Ok();
         }
+
+        [HttpGet("GetAllTestimonials")]
+        public IActionResult GetAllTestimonials()
+        {
+            var testimonials = _db.Testimonials.OrderBy(m => m.IsAccepted).ToList();
+            var lestTestimonials = new List<GetAllTestimonialsDTO>();
+
+            foreach (var item in testimonials)
+            {
+                var testimonial = new GetAllTestimonialsDTO
+                {
+                    Id = item.Id,
+                    UserName = item.UserName,
+                    Email = item.Email,
+                    TheTestimonial = item.TheTestimonial,
+                    IsAccepted = item.IsAccepted
+                };
+                lestTestimonials.Add(testimonial);
+            }
+            return Ok(lestTestimonials);
+        }
+
+        [HttpDelete("DeleteTestimonial/{id}")]
+        public IActionResult DeleteTestimonial(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+
+            var testmonial = _db.Testimonials.FirstOrDefault(u => u.Id == id);
+            if (testmonial == null)
+            {
+                return NotFound();
+            }
+            _db.Testimonials.Remove(testmonial);
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpPut("AcceptTestimonial/{id}")]
+        public IActionResult AcceptTestimonial(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var testimonial = _db.Testimonials.FirstOrDefault(u => u.Id == id);
+            if (testimonial == null)
+            {
+                return NotFound();
+            }
+            testimonial.IsAccepted = true;
+            _db.Testimonials.Update(testimonial);
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpGet("GetAllContactus")]
+        public IActionResult GetAllContactus()
+        {
+            var contactUs = _db.Contactus.ToList();
+            return Ok(contactUs);
+        }
+        [HttpDelete("DeletContactMessage/{id}")]
+        public IActionResult DeletContactMessage(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+
+            var contactMessage = _db.Contactus.FirstOrDefault(u => u.Id == id);
+            if (contactMessage == null)
+            {
+                return NotFound();
+            }
+            _db.Contactus.Remove(contactMessage);
+            _db.SaveChanges();
+            return Ok();
+        }
+
+        ///////// API filters section ////////////
+
+        [HttpGet("GetEmployeeByIdNumber/{idNumber}")]
+        public IActionResult GetEmployeeById(int idNumber)
+        {
+            if (idNumber <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var employee = _db.Employees.Where(w => w.EmployeeId == idNumber).ToList();
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return Ok(employee);
+        }
+        [HttpGet("GetUserByCarPlateNumber/{carnumber}")]
+        public IActionResult GetUserByCarPlateNumber(int carnumber)
+        {
+            if (carnumber <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var user = _db.Users.Where(c => c.CarPlateNumber == carnumber).ToList().FirstOrDefault();
+            if (user == null)
+            {
+                return NotFound();
+            }
+            var userDTO = new List<GetAllUsersDTO>();
+            var userlist = new GetAllUsersDTO
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                PhonrNumber = user.PhonrNumber,
+                CarPlateNumber = user.CarPlateNumber,
+                City = user.City,
+                Street = user.Street,
+                Image = user.Image
+            };
+            userDTO.Add(userlist);
+            return Ok(userDTO);
+        }
+        [HttpGet("GetVehicleRequestByCarPlateNumber/{CarPlateNumber}")]
+        public IActionResult GetVehicleRequestByCarPlateNumber(int CarPlateNumber)
+        {
+            if (CarPlateNumber <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var vehicleRequest = _db.VehicaleChargings.Where(w => w.IsAccept == false && w.CarPlateNumber == CarPlateNumber)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.PhoneNumber,
+                    s.CarPlateNumber,
+                    s.CarType,
+                    s.ChargerType,
+                    s.Date,
+                    s.Time,
+                    s.Status,
+                    s.User.UserName
+                })
+                .ToList();
+            if (vehicleRequest == null)
+            {
+                return NotFound();
+            }
+            return Ok(vehicleRequest);
+        }
+        [HttpGet("GetDeliveryChargerRequestsByCarNumber/{carNumber}")]
+        public IActionResult GetAllDeliveryChargerRequests(int carNumber)
+        {
+            var deliveryChargers = _db.DeliveryChargers
+                .Where(w => w.IsAccept == false && w.CarPlateNumber == carNumber)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.PhoneNumber,
+                    s.TheLoction,
+                    s.CarPlateNumber,
+                    s.CarType,
+                    s.ChargerType,
+                    s.City,
+                    s.User.UserName
+                })
+                .ToList();
+            return Ok(deliveryChargers);
+        }
+        [HttpGet("GetAllComputerCheckRequestsByCarNumber/{carNumber}")]
+        public IActionResult GetAllComputerCheckRequests(int carNumber)
+        {
+            var computerChecks = _db.ComputerChecks
+                .Where(w => w.IsAccept == false && w.CarPlateNmber == carNumber)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.PhoneNumber,
+                    s.TheLocation,
+                    s.CarPlateNmber,
+                    s.CarType,
+                    s.CarClass,
+                    s.ManufacturingDate,
+                    s.User.UserName
+                })
+                .ToList();
+            return Ok(computerChecks);
+        }
+        
     }
 }

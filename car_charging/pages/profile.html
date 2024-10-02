@@ -247,7 +247,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/pages/Testimonial.html">
+                                <a class="nav-link text-white" href="./Testimonial.html">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">reply</i>
@@ -274,7 +274,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" onclick="logout()" href="../login.html">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">logout</i>
                         </div>
@@ -397,7 +397,7 @@
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="#" class="nav-link text-body font-weight-bold px-0">
+              <a href="../login.html" onclick="logout()" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign Out</span>
               </a>
@@ -416,12 +416,12 @@
           <div class="row gx-4 mb-2">
             <div class="col-auto">
               <div class="avatar avatar-xxl position-relative">
-                <img src="../img/IMG-20240815-WA0080_1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                <img id="adminimage" src="../img/IMG-20240815-WA0080_1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
               </div>
             </div>
             <div class="col-auto my-auto">
               <div class="h-100">
-                <h5 class="mb-1">
+                <h5 id="adminnamehead" class="mb-1">
                   Malik Ibdah
                 </h5>
               </div>
@@ -437,7 +437,7 @@
                         <h6 class="mb-0">Profile Information :</h6>
                       </div>
                       <div class="col-md-4 text-end">
-                        <a href="javascript:;">
+                        <a href="EditProfile.html">
                           <i class="fas fa-user-edit text-success text-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                         </a>
                       </div>
@@ -446,10 +446,10 @@
                   <div class="card-body p-3">
                     <hr class="horizontal gray-light my-1">
                     <ul class="list-group">
-                      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Malik Ibdah</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (+962) 786217123</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; Malikibdah@mail.com</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; Jordan</li>
+                      <li class="list-group-item border-0 ps-0 pt-0 text-sm" id="adminname"></li>
+                      <li class="list-group-item border-0 ps-0 text-sm" id="adminnumber"></li>
+                      <li class="list-group-item border-0 ps-0 text-sm" id="adminemail"></li>
+                      <li class="list-group-item border-0 ps-0 text-sm" id="adminaddress"></li>
                     </ul>
                   </div>
                 </div>
@@ -556,6 +556,38 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <script>
+    async function Adminprofile() {
+
+      let adminname = document.getElementById('adminname').innerHTML;
+      let adminnumber = document.getElementById('adminnumber').innerHTML;
+      let adminemail = document.getElementById('adminemail').innerHTML;
+      let adminaddress = document.getElementById('adminaddress').innerHTML;
+      let adminimage = document.getElementById('adminimage').src;
+
+      let adminId = localStorage.getItem('adminId');
+      let url = `https://localhost:44326/api/Admin/GetAdminInfo/1`;
+      let response = await fetch(url);
+      let adminData = await response.json();
+      
+      document.getElementById('adminnamehead').innerHTML = adminData.adminName;
+      document.getElementById('adminname').innerHTML = "Full Name : " + adminData.adminName;
+      document.getElementById('adminnumber').innerHTML = "Phone Number : "+ adminData.phoneNumber;
+      document.getElementById('adminemail').innerHTML = "Email : "+ adminData.email;
+      document.getElementById('adminaddress').innerHTML = "Address : "+ adminData.address;
+      document.getElementById('adminimage').src = "../img/" + adminData.image;
+      
+    }
+    Adminprofile();
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function logout() {
+            localStorage.removeItem("adminId");
+           
+        }
+  </script>
 </body>
 
 </html>

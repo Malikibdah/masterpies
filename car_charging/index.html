@@ -150,46 +150,68 @@
     <div class="Search">
         <h3 class="h3search">Booking For Charge</h3>
         <div class="container">
-            <form>
+            <form id="Chargeinstationform">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" type="text" placeholder="Car Plate Number" />
+                        <input class="form-control" type="text" name="carPlateNumber" placeholder="Car Plate Number" />
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" type="text" placeholder="Phone Number" />
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" type="time" placeholder="Time" />
+                        <input class="form-control" type="text" name="phoneNumber" placeholder="Phone Number" />
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <select id="date-select" class="form-select" aria-label="Car Type">
-                            <option selected>Select Date</option>
-
+                        <input class="form-control" name="carType" type="text" placeholder="Car Type" />
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto theselect1">
+                        <select class="form-select" id="checktime" name="time"
+                            aria-label="Charger Type">
+                            <option value="">Select Time</option>
+                            <option value="1">1 - 2 AM</option>
+                            <option value="2">2 - 3 AM</option>
+                            <option value="3">3 - 4 AM</option>
+                            <option value="4">4 - 5 AM</option>
+                            <option value="5">5 - 6 AM</option>
+                            <option value="6">6 - 7 AM</option>
+                            <option value="7">7 - 8 AM</option>
+                            <option value="8">8 - 9 AM</option>
+                            <option value="9">9 - 10 AM</option>
+                            <option value="10">10 - 11 AM</option>
+                            <option value="11">11 - 12 AM</option>
+                            <option value="12">12 - 1 PM</option>
+                            <option value="13">1 - 2 PM</option>
+                            <option value="14">2 - 3 PM</option>
+                            <option value="15">3 - 4 PM</option>
+                            <option value="16">4 - 5 PM</option>
+                            <option value="17">5 - 6 PM</option>
+                            <option value="18">6 - 7 PM</option>
+                            <option value="19">7 - 8 PM</option>
+                            <option value="20">8 - 9 PM</option>
+                            <option value="21">9 - 10 PM</option>
+                            <option value="22">10 - 11 PM</option>
+                            <option value="23">11 - 12 PM</option>
+                            <option value="00">12 - 1 AM</option>
                         </select>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <select class="form-select" aria-label="Charger Type">
-                            <option selected>Select Car Type</option>
-                            <option value="1">Nissan</option>
-                            <option value="2">Toyota</option>
-                            <option value="3">Changan</option>
-                            <option value="4">BYD</option>
-                            <option value="5">Hyundai</option>
-                            <option value="6">Honda</option>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto theselect1">
+                        <select id="date-select" name="date" class="form-select"
+                            aria-label="Select Date">
+                            <option value="">Select Date</option>
+                            <!-- سيتم تعبئتها تلقائيًا من خلال JavaScript -->
                         </select>
                     </div>
+
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <select class="form-select" aria-label="Charger Type">
+                        <select class="form-select" name="chargerType" aria-label="Charger Type">
                             <option selected>Select Charger Type</option>
-                            <option value="1">Level 1 : 110 V</option>
-                            <option value="2">Level 2 : 240 V</option>
-                            <option value="3">Level 3 : 480 V</option>
+                            <option value="Level1:110V">Level 1 : 110 V</option>
+                            <option value="Level2:240V">Level 2 : 240 V</option>
+                            <option value="Level3:480V">Level 3 : 480 V</option>
                         </select>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-1 mx-auto d-flex align-items-end">
-                        <button class="btn searchbtn w-100">Submit</button>
+                        <button type="submit" onclick="bookingInstation()" class="btn searchbtn w-100">Submit</button>
                     </div>
                 </div>
             </form>
@@ -592,12 +614,14 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="service.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            debugger
             const dateSelect = document.getElementById('date-select');
             const today = new Date();
 
@@ -606,9 +630,9 @@
                 let futureDate = new Date();
                 futureDate.setDate(today.getDate() + i); // إضافة أيام
                 const dateStr = futureDate.toISOString().split('T')[0]; // تحويل التاريخ إلى صيغة YYYY-MM-DD
-                dateOption.value = i + 1;
-                dateOption.textContent = dateStr;
-                dateSelect.appendChild(dateOption);
+                dateOption.value = dateStr; // تعيين value بنفس قيمة التاريخ
+                dateOption.textContent = dateStr; // تعيين النص المعروض
+                dateSelect.appendChild(dateOption); // إضافة العنصر للقائمة
             }
         });
 
@@ -699,6 +723,88 @@
 
         // استدعاء الدالة لجلب البيانات عند تحميل الصفحة
         gettestimonial();
+    </script>
+    <script>
+        async function bookingInstation() {
+            debugger;
+            event.preventDefault();
+            let user = localStorage.getItem("userId");
+            if (user == null || user == undefined) {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Not Logged In',
+                    text: 'You must be logged in to book In Station.',
+                });
+                return;
+            }
+
+            async function checkForBooking() {
+                event.preventDefault();
+                let time = document.getElementById("checktime").value;
+                let date = document.getElementById("date-select").value;
+
+                // التحقق من أن الحقول ليست فارغة
+                if (time == "" || date == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill in both the time and date fields before proceeding.',
+                    });
+                    return;
+                }
+
+                let url = `https://localhost:44326/api/Booking/CheckforAvailableChager/${date}/${time}`;
+                let response = await fetch(url);
+
+                if (response.ok) {
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Available',
+                        text: "It's Available. You can proceed with booking.",
+                        showCancelButton: true,
+                        confirmButtonText: 'Book Now',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            bookInStation();
+                        }
+                    });
+                } else {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Unavailable',
+                        text: "It's not available for booking at this time.",
+                    });
+                }
+            }
+            
+            //هذا الfunction  الذي يقوم بالحجز ويتم استدعاءه اذا تم الضغط على كبسة booknow
+            async function bookInStation() {
+
+                event.preventDefault();
+                let url = `https://localhost:44326/api/Booking/BookingInTheStation/${user}`;
+                let form = document.getElementById("Chargeinstationform");
+                let data = new FormData(form);
+                let response = await fetch(url, {
+                    method: 'POST',
+                    body: data
+                });
+                if (response.ok) {
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Successful',
+                        text: 'Your booking has been confirmed.',
+                    });
+                } else {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Failed',
+                        text: 'Failed to book the station. Please try again later.',
+                    });
+                }
+            }
+            checkForBooking();
+        }
     </script>
 </body>
 

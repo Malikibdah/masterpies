@@ -123,21 +123,22 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="Enter email" disabled style="color: black;">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                            disabled style="color: black;">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phonenumber">Phone</label>
-                                        <input type="text" name="phoneNumber" class="form-control" id="phonenumber"
+                                        <input type="text" name="PhonrNumber" class="form-control" id="phonenumber"
                                             placeholder="Enter phone number">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="carplatenumber">Car plate number</label>
-                                        <input type="text" name="carPlateNumber" class="form-control" id="carplatenumber" placeholder="plate number">
+                                        <input type="text" name="carPlateNumber" class="form-control"
+                                            id="carplatenumber" placeholder="plate number">
                                     </div>
                                 </div>
                             </div>
@@ -148,13 +149,15 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="street">Street</label>
-                                        <input type="text" name="street" class="form-control" id="street" placeholder="Enter Street">
+                                        <input type="text" name="street" class="form-control" id="street"
+                                            placeholder="Enter Street">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" name="city" class="form-control" id="city" placeholder="Enter City">
+                                        <input type="text" name="city" class="form-control" id="city"
+                                            placeholder="Enter City">
                                     </div>
                                 </div>
 
@@ -165,9 +168,9 @@
                                     <div class="text-right">
 
                                         <a href="profile.html" class="btn btn-danger btnprofile">Cancel</a>
-                                        <button type="submit" onclick="UpdateProfileInfo()" id="submit" 
+                                        <button type="submit" onclick="UpdateProfileInfo()" id="submit"
                                             class="btn btn-primary btnprofile">Update</button>
-                                        <a href="emailforotp.html" type="submit" id="submit" 
+                                        <a href="emailforotp.html" type="submit" id="submit"
                                             class="btn btn-secondary btnprofile">Reset Password</a>
                                     </div>
                                 </div>
@@ -257,6 +260,8 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+    <!-- إضافة مكتبة SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
@@ -283,7 +288,7 @@
         showLogin();
         function logout() {
             localStorage.removeItem("userId");
-           
+
         }
     </script>
 </body>

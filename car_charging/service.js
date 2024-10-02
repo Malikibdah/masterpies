@@ -1,11 +1,12 @@
 async function showServices() {
+    debugger
     let url = "https://localhost:44326/api/Admin/GetAllServices";
     let response = await fetch(url);
     let data = await response.json();
     let allservices = document.getElementById("allService");
     data.forEach(element => {
 
-        if (!data.isHidden) {
+        if (!element.isHidden) {
             allservices.innerHTML += `
                  <div class="col-md-6 col-lg-4 wow fadeInUp" id="service3" data-wow-delay="0.1s">
                     <div class="service-item">

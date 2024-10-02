@@ -237,7 +237,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/pages/Testimonial.html">
+                <a class="nav-link text-white" href="./Testimonial.html">
                   <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="material-icons opacity-10">reply</i>
                   </div>
@@ -263,7 +263,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
+          <a class="nav-link text-white" onclick="logout()" href="../login.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">logout</i>
             </div>
@@ -393,7 +393,7 @@
             </ul>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+            <a href="../login.html" onclick="logout()" class="nav-link text-body font-weight-bold px-0">
               <i class="fa fa-user me-sm-1"></i>
 
               <span class="d-sm-inline d-none">Sign Out</span>
@@ -613,8 +613,8 @@
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
                 <div class="d-flex align-items-center">
-                  <input class="form-control me-2 ms-3 ps-2 border" type="search" placeholder="Search by car plate number" aria-label="Search" style="width: 300px;">
-                  <button class="btn btn-success mt-3" type="submit">Search</button>
+                  <input id="carPlateNumber" class="form-control me-2 ms-3 ps-2 border" type="search" placeholder="Search by car plate number" aria-label="Search" style="width: 300px;">
+                  <button class="btn btn-success mt-3" onclick="getVehicleRequestByCaeNumber()" type="submit">Search</button>
                 </div>
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
@@ -632,8 +632,8 @@
                       <th></th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
+                  <tbody id="vehicleChargingRequestTableId">
+                    <!-- <tr>
                       <td>
                         <div class="d-flex px-2">
 
@@ -668,181 +668,10 @@
                             class="material-icons text-sm me-2">check</i>Accept</a>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm ms-2">Malik</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">077777777</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">Toyota</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">321456</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">20-09-2024</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">5 PM</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">Level 1 : 110 V</span>
-                      </td>
-
-                      <td class="align-middle">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">check</i>Accept</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm ms-2">Malik</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">0777777777</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">Toyota</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">321456</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">20-09-2024</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">5 PM</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">Level 1 : 110 V</span>
-                      </td>
-
-                      <td class="align-middle">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">check</i>Accept</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm ms-2">Malik</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">0777777777</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">Toyota</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">321456</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">20-09-2024</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">5 PM</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">Level 1 : 110 V</span>
-                      </td>
-
-                      <td class="align-middle">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">check</i>Accept</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm ms-2">Malik</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">0777777777</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">Toyota</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">321456</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">20-09-2024</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">5 PM</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">Level 1 : 110 V</span>
-                      </td>
-
-                      <td class="align-middle">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">check</i>Accept</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm ms-2">Malik</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">0777777777</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">Toyota</p>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">321456</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">20-09-2024</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">5 PM</span>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">Level 1 : 110 V</span>
-                      </td>
-
-                      <td class="align-middle">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i
-                            class="material-icons text-sm me-2">check</i>Accept</a>
-                      </td>
-                    </tr>
-                  </tbody>
+                     -->
+                    
+                     <!-- the table data show here -->
+                    </tbody>
                 </table>
               </div>
             </div>
@@ -950,6 +779,15 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <script src="AdminJS/AllVehicleChargeRequest.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function logout() {
+            localStorage.removeItem("adminId");
+           
+        }
+  </script>
 </body>
 
 </html>

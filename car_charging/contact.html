@@ -184,35 +184,29 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <form>
+                    <form id="contactform">
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message"
                                         style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-primary py-3 px-5" onclick="addcontactmessage()" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -300,9 +294,42 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+      <!-- إضافة مكتبة SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        async function addcontactmessage() {
+            
+            event.preventDefault();
+            
+            let url = "https://localhost:44326/api/User/AddContactMessage";
+            let form = document.getElementById("contactform");
+            let formData = new FormData(form);
+    
+            let response = await fetch(url, {
+                method: "POST",
+                body: formData
+            });
+    
+            if (response.ok) {
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Message sent successfully! we will contact you as soon as possible',
+                });
+                form.reset();
+            } else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Failed!',
+                    text: 'Failed to send message!',
+                });
+            }
+        }
+    </script>
+    
     <script>
         function showLogin() {
             user = localStorage.getItem("userId");

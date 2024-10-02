@@ -153,10 +153,73 @@ namespace CarCharging.Controllers
                 };
                 lesttestimonial.Add(accepttestimonial);
             }
-            
-            return Ok(lesttestimonial);
-            
-        }
 
+            return Ok(lesttestimonial);
+
+        }
+        [HttpPost("AddContactMessage")]
+        public IActionResult AddContactMessage([FromForm] ContactMessageDTO contactMessageDTO)
+        {
+            var contactMessage = new Contactu
+            {
+                Email = contactMessageDTO.Email,
+                Subject = contactMessageDTO.Subject,
+                Message = contactMessageDTO.Message
+            };
+            _db.Contactus.Add(contactMessage);
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpGet("GetAllVehiclechargingrequestsByUserId/{id}")]
+        public IActionResult GetAllAcceptVehiclechargingrequests(int id)
+        {
+            var acceptvehicleChargings = _db.VehicaleChargings
+                .Where(w => w.UserId == id)
+                .OrderByDescending(w => w.Date)
+                .Select(s => new
+                {
+                    s.PhoneNumber,
+                    s.CarPlateNumber,
+                    s.CarType,
+                    s.Status,
+                    s.User.UserName
+                })
+                .ToList();
+            return Ok(acceptvehicleChargings);
+        }
+        [HttpGet("GetAllDeliveryChargerRequestsByUserId/{id}")]
+        public IActionResult GetAcceptAllDeliveryChargerRequests(int id)
+        {
+            var acceptdeliveryChargers = _db.DeliveryChargers
+                .Where(w => w.UserId == id)
+                .OrderByDescending(w => w.Status)
+                .Select(s => new
+                {
+                    s.PhoneNumber,
+                    s.CarPlateNumber,
+                    s.CarType,
+                    s.Status,
+                    s.User.UserName
+                })
+                .ToList();
+            return Ok(acceptdeliveryChargers);
+        }
+        [HttpGet("GetAllComputerCheckRequestsByUserId/{id}")]
+        public IActionResult GetAcceptAllComputerCheckRequests(int id)
+        {
+            var acceptcomputerChecks = _db.ComputerChecks
+                .Where(w => w.UserId == id)
+                .OrderByDescending(w => w.Status)
+                .Select(s => new
+                {
+                    s.PhoneNumber,
+                    s.CarPlateNmber,
+                    s.CarType,
+                    s.Status,
+                    s.User.UserName
+                })
+                .ToList();
+            return Ok(acceptcomputerChecks);
+        }
     }
 }
