@@ -600,6 +600,128 @@ namespace CarCharging.Controllers
                 .ToList();
             return Ok(computerChecks);
         }
-        
+
+        [HttpGet("GetEmployeeInfoById/{id}")]
+        public IActionResult GetEmployeeInfoById(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var employee = _db.Employees.FirstOrDefault(u => u.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var employeeDTO = new UpdateEmployeeDTO
+            {
+                EmpName = employee.EmpName,
+                EmployeeId = employee.EmployeeId,
+                Salary = employee.Salary,
+                Jobtitle = employee.Jobtitle,
+                PhoneNumber = employee.PhoneNumber,
+                EmergencyNumber = employee.EmergencyNumber,
+
+            };
+            return Ok(employeeDTO);
+        }
+
+        [HttpGet("GetUserInfoById/{id}")]
+        public IActionResult GetUserInfoById(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            var userDTO = new GetUserInfoByIdDTO
+            {
+
+                UserName = user.UserName,
+                Email = user.Email,
+                PhonrNumber = user.PhonrNumber,
+                CarPlateNumber = user.CarPlateNumber,
+                City = user.City,
+                Street = user.Street,
+
+            };
+            return Ok(userDTO);
+        }
+        [HttpGet("GetServiceInfoById/{id}")]
+        public IActionResult GetServiceInfoById(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var service = _db.Services.FirstOrDefault(u => u.Id == id);
+            if (service == null)
+            {
+                return BadRequest("No service found for given id");
+            }
+            var serviceDTO = new UpdateServiceDTO
+            {
+                ServiceName = service.ServiceName,
+                Description = service.Description,
+
+            };
+            return Ok(serviceDTO);
+        }
+        [HttpGet("GetProjectInfoById/{id}")]
+        public IActionResult GetProjectInfoById(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("You can not use 0 or negative value for id");
+            }
+            var project = _db.Projects.FirstOrDefault(u => u.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            var projectDTO = new UpdateProjectDTO 
+            {
+                ProjectName = project.ProjectName,
+                
+            };
+            return Ok(projectDTO);
+        }
+
+        [HttpGet("GetNumberOfEmployees")]
+        public IActionResult GetNumberOfEmployees()
+        {
+            var employeesCount = _db.Employees.Count();
+            return Ok(employeesCount);
+        }
+
+        [HttpGet("GetNumberAllBookings")]
+        public IActionResult GetNumberAllBookings()
+        {
+            var vehicaleCount = _db.VehicaleChargings.Count();
+            var deliveryCount = _db.DeliveryChargers.Count();
+            var computerCount = _db.ComputerChecks.Count();
+            return Ok(vehicaleCount + deliveryCount + computerCount);
+
+        }
+
+        [HttpGet("GetNumberOfUsers")]
+        public IActionResult GetNumberOfUsers()
+        {
+            var usersCount = _db.Employees.Count();
+            return Ok(usersCount);
+        }
+
+        [HttpGet("GetNumberOfDoneBooking")]
+        public IActionResult GetNumberOfDoneBooking()
+        {
+            var vehicaleCount = _db.VehicaleChargings.Where(v => v.Status == "Done").Count();
+            var deliveryCount = _db.DeliveryChargers.Where(v => v.Status == "Done").Count();
+            var computerCount = _db.ComputerChecks.Where(v => v.Status == "Done").Count();
+            return Ok(vehicaleCount + deliveryCount + computerCount);
+        }
     }
 }

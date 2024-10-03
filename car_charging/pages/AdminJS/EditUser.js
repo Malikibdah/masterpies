@@ -1,3 +1,21 @@
+async function getUserById() {
+    let UserId = localStorage.getItem('edituserbyId');
+    let url = `https://localhost:44326/api/Admin/GetUserInfoById/${UserId}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    document.getElementById("UserName").value = data.userName;
+    document.getElementById("UserEmail").value = data.email;
+    document.getElementById("UserPhoneNumber").value = data.phonrNumber;
+    document.getElementById("UserCarPlateNumber").value = data.carPlateNumber;
+    document.getElementById("UserCity").value = data.city;
+    document.getElementById("UserStreet").value = data.street;
+
+}
+
+getUserById();
+
+
+
 async function EditUser() {
     debugger
     event.preventDefault();

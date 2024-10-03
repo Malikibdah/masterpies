@@ -1,3 +1,15 @@
+async function getServiceById() {
+    let ServiceId = localStorage.getItem('projectId');
+    let url = `https://localhost:44326/api/Admin/GetProjectInfoById/${ServiceId}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    document.getElementById("ProjectName").value = data.projectName;
+    
+}
+
+getServiceById();
+
+
 async function EditProject() {
     debugger
     let projectId = localStorage.getItem('projectId');

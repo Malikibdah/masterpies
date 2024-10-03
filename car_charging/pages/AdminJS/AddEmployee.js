@@ -13,7 +13,7 @@ async function AddEmployee() {
     window.location.reload();
     }
     else {
-        alert("Failed to add employee. Please try again.");
+        alert("Failed to add employee. Please be sure to fill in all fields");
     }
     
 }

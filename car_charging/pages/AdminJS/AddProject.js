@@ -13,7 +13,7 @@ async function AddProject() {
     window.location.reload();
     }
     else {
-        alert("Failed to add project. Please try again.");
+        alert("Failed to add project. Please be sure to fill in all fields");
     }
     
 }
