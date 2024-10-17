@@ -18,6 +18,12 @@ namespace CarCharging.Controllers
         [HttpPost("UserRegester")]
         public IActionResult UserRegester([FromForm] UserRegesterDTO userRegesterDTO)
         {
+           
+            var existingUser = _db.Users.FirstOrDefault(u => u.Email == userRegesterDTO.Email);
+            if (existingUser != null)
+            {
+                return BadRequest("Email already exists");
+            }
             byte[] passwordHash, passwordSalt;
 
             PasswordHasher.CreatePasswordHash(userRegesterDTO.Password, out passwordHash, out passwordSalt);

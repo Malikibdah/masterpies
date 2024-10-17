@@ -345,6 +345,7 @@ namespace CarCharging.Controllers
             }
             vehicleCharging.Status = changeStatusRequestsDTO.Status;
 
+            _db.VehicaleChargings.Update(vehicleCharging);
             _db.SaveChanges();
             return Ok();
         }
