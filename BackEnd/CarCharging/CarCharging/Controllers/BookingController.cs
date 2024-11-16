@@ -84,6 +84,18 @@ namespace CarCharging.Controllers
             {
                 return NotFound("User not found");
             }
+
+            
+            var existingBooking = _db.VehicaleChargings
+                .FirstOrDefault(b => b.CarPlateNumber == bookingInStationRequest.CarPlateNumber &&
+                                     b.Date == bookingInStationRequest.Date &&
+                                     b.Time == bookingInStationRequest.Time);
+
+            if (existingBooking != null)
+            {
+                return Conflict("A booking already exists for this car at the specified date and time.");
+            }
+
             var stationbooking = new VehicaleCharging
             {
                 UserId = id,

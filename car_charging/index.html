@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Industro - Industrial HTML Template</title>
+    <title>JO Charging Station</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -153,14 +153,14 @@
             <form id="Chargeinstationform">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" type="text" name="carPlateNumber" placeholder="Car Plate Number" />
+                        <input class="form-control" type="text" name="carPlateNumber" id="CarPlateNumber" placeholder="Car Plate Number" />
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" type="text" name="phoneNumber" placeholder="Phone Number" />
+                        <input class="form-control" type="text" name="phoneNumber" id="PhoneNumber" placeholder="Phone Number" />
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <input class="form-control" name="carType" type="text" placeholder="Car Type" />
+                        <input class="form-control" name="carType" id="CarType" type="text" placeholder="Car Type" />
                     </div>
                     
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto theselect1">
@@ -203,8 +203,8 @@
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-6 mb-3 mx-auto">
-                        <select class="form-select" name="chargerType" aria-label="Charger Type">
-                            <option selected>Select Charger Type</option>
+                        <select class="form-select" id="chargerType" name="chargerType" aria-label="Charger Type">
+                            <option value="">Select Charger Type</option>
                             <option value="Level1:110V">Level 1 : 110 V</option>
                             <option value="Level2:240V">Level 2 : 240 V</option>
                             <option value="Level3:480V">Level 3 : 480 V</option>
@@ -646,7 +646,7 @@
         </div>`;
             } else {
                 let showprofile = document.getElementById("showprofileandlogout");
-                showprofile.innerHTML += `<a href="profile.html" id="profileId" class="nav-item nav-link">Profile</a>`;
+                showprofile.innerHTML += `<a href="profile.html" id="profileId" class="nav-item nav-link"><i class="fas fa-user"></i> Profile</a>`;
                 let showlogout = document.getElementById("showprofileandlogout");
                 showlogout.innerHTML += ` <div class="btn p-4">
           <a href="./index.html" onclick="logout()" class=" text-white p-2 ps-3 pe-3" style="background-color: #8cc63f;">Logout</a>
@@ -739,15 +739,80 @@
 
             async function checkForBooking() {
                 event.preventDefault();
-                let time = document.getElementById("checktime").value;
-                let date = document.getElementById("date-select").value;
 
-                // التحقق من أن الحقول ليست فارغة
-                if (time == "" || date == "") {
+                let CarPlateNumber = document.getElementById("CarPlateNumber").value;
+                if (CarPlateNumber == "") {
                     await Swal.fire({
                         icon: 'warning',
                         title: 'Missing Information',
-                        text: 'Please fill in both the time and date fields before proceeding.',
+                        text: 'Please fill your car plate number before proceeding.',
+                    });
+                    return;
+                }
+                let carnumbercount = CarPlateNumber.length;
+                if (carnumbercount < 1 || carnumbercount > 7) {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please enter a valid car type. It should be between 1 and 7 characters long.',
+                    });
+                    return;
+                }
+
+                let PhoneNumber = document.getElementById("PhoneNumber").value;
+                if (PhoneNumber == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill your phone number before proceeding.',
+                    });
+                    return;
+                }
+                if (!/^(?:\+962|0)?7[789]\d{7}$/.test(PhoneNumber)) {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please enter a valid Jordanian phone number. It should start with +962 or 07, followed by (7, 8, or 9), and followed by 7 digits.',
+                    });
+                    return;
+                }
+
+                let CarType = document.getElementById("CarType").value;
+                if (CarType == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill your car type before proceeding.',
+                    });
+                    return;
+                }
+                
+                let date = document.getElementById("date-select").value;
+                if (date == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill your date before proceeding.',
+                    });
+                    return;
+                }
+
+                let time = document.getElementById("checktime").value;
+                if (time == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill your time before proceeding.',
+                    });
+                    return;
+                }
+
+                let chargerType = document.getElementById("chargerType").value;
+                if (chargerType == "") {
+                    await Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Information',
+                        text: 'Please fill charger type before proceeding.',
                     });
                     return;
                 }
@@ -788,6 +853,14 @@
                     method: 'POST',
                     body: data
                 });
+                if (response.status == 409) {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Conflict',
+                        text: "You can't book two times at the same time and date for the same vehicle.",
+                    });
+                    return;
+                }
                 if (response.ok) {
                     await Swal.fire({
                         icon: 'success',

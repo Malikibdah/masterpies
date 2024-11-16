@@ -24,7 +24,7 @@ function showLogin() {
         </div>`;
   } else {
     let showprofile = document.getElementById("showprofileandlogout");
-    showprofile.innerHTML += `<a href="profile.html" id="profileId" class="nav-item nav-link">Profile</a>`;
+    showprofile.innerHTML += `<a href="profile.html" id="profileId" class="nav-item nav-link"><i class="fas fa-user"></i> Profile</a>`;
     let showlogout = document.getElementById("showprofileandlogout");
     showlogout.innerHTML += ` <div class="btn p-4">
           <a href="" onclick="logout()" class=" text-white p-2 ps-3 pe-3" style="background-color: #8cc63f;">Logout</a>
@@ -38,12 +38,12 @@ async function Regester() {
   debugger;
   event.preventDefault();
 
-  // استرداد القيم من المدخلات
+  
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let confirmpassword = document.getElementById("confirmpassword").value;
 
-  // يتحقق من صيغة البريد الإلكتروني باستخدام Regex
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     await Swal.fire({
@@ -51,10 +51,10 @@ async function Regester() {
       title: 'Invalid Email',
       text: 'Please enter a valid email address.',
     });
-    return; // لمنع استمرار التنفيذ في حال كان البريد الإلكتروني غير صحيح
+    return; 
   }
 
-  // تحقق من أن كلمة المرور لا تقل عن 8 خانات وتحتوي على أحرف ورموز وأرقام
+  
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordRegex.test(password)) {
     await Swal.fire({
@@ -62,17 +62,17 @@ async function Regester() {
       title: 'Weak Password',
       text: 'Password must be at least 8 characters long, and include letters, numbers, and special characters.',
     });
-    return; // لمنع استمرار التنفيذ في حال كانت كلمة المرور غير قوية
+    return; 
   }
 
-  // تحقق من تطابق كلمات المرور
+  
   if (password !== confirmpassword) {
     await Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'Passwords do not match!',
     });
-    return; // لمنع استمرار التنفيذ في حال كانت كلمات المرور غير متطابقة
+    return; 
   }
 
   
