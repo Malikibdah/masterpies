@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\dto\\getalltestimonialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\dto\\getalltestimonialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|c:\\users\\orange\\desktop\\masterpies\\masterpies\\backend\\carcharging\\carcharging\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{458D4856-E6E0-41CA-A8B7-503AA57FAB89}|CarCharging\\CarCharging.csproj|solutionrelative:carcharging\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,10 +62,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:7:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:8:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
@@ -73,38 +69,48 @@
               "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetAllTestimonialsDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\GetAllTestimonialsDTO.cs",
-              "RelativeDocumentMoniker": "CarCharging\\DTO\\GetAllTestimonialsDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\DTO\\GetAllTestimonialsDTO.cs",
-              "RelativeToolTip": "CarCharging\\DTO\\GetAllTestimonialsDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T16:33:47.398Z"
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "CarCharging\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "CarCharging\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACICAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:08:36.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "CarCharging\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\UserController.cs",
               "RelativeToolTip": "CarCharging\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAAAHsAAABDAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T18:35:11.373Z"
+              "WhenOpened": "2024-10-11T18:35:11.373Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "BookingController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\BookingController.cs",
               "RelativeDocumentMoniker": "CarCharging\\Controllers\\BookingController.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\masterpies\\masterpies\\BackEnd\\CarCharging\\CarCharging\\Controllers\\BookingController.cs",
               "RelativeToolTip": "CarCharging\\Controllers\\BookingController.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAiwD0AAABGAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAIEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T18:20:47.862Z",
               "EditorCaption": ""

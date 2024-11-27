@@ -48,7 +48,6 @@ Allemployees();
 async function Deletemployee(id) {
   event.preventDefault();
   
-  // تأكيد الحذف من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -58,7 +57,6 @@ async function Deletemployee(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/DeleteEmployee/${id}`;
       let response = await fetch(url, {
@@ -74,7 +72,7 @@ async function Deletemployee(id) {
               title: 'Employee deleted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -84,7 +82,6 @@ async function Deletemployee(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Deletion canceled',

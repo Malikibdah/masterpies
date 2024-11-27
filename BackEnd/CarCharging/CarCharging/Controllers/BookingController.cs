@@ -138,6 +138,7 @@ namespace CarCharging.Controllers
         {
             var vehicleChargings = _db.VehicaleChargings
                 .Where(w => w.IsAccept == false)
+                .OrderByDescending(w => w.Date)
                 .Select(s => new
                 {
                     s.Id,

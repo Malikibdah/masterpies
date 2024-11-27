@@ -14,6 +14,17 @@ async function EditProject() {
     debugger
     let projectId = localStorage.getItem('projectId');
     event.preventDefault();
+
+    let ProjectName = document.getElementById("ProjectName").value;
+    if (ProjectName == "") {
+        await Swal.fire({
+            icon: 'warning',
+            title: 'Missing Information',
+            text: 'Please fill Project Name before proceeding.',
+        });
+        return;
+    }
+
     let url = `https://localhost:44326/api/Admin/UpdateProject/${projectId}`;
 
     let form = document.getElementById("editprojectform");
@@ -22,11 +33,24 @@ async function EditProject() {
         method: 'PUT',
         body: formData
     });
-    if (response.status === 200){
-    alert("Project Edited successfully");
 
-    localStorage.removeItem('projectId');
+    if (response.status === 200) {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Project Edited successfully.',
+        }).then(() => {
+            localStorage.removeItem('projectId');
+            window.location.href = "Projects.html";
+        });
     } else {
-        alert("Failed to edit Project");
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'An error has occurred. Please try again.',
+        });
     }
+
 }

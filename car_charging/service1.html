@@ -106,28 +106,28 @@
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Inter Your Location
                                             (URL)</label>
-                                        <input type="url" name="theLocation" id="form3Example8"
+                                        <input type="url" name="theLocation" id="locationURL"
                                             class="form-control form-control-lg" />
 
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Plate Number</label>
-                                        <input type="text" name="carPlateNmber" id="form3Example8"
+                                        <input type="text" name="carPlateNmber" id="CarPlateNumber"
                                             class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Phone Number</label>
-                                        <input type="text" name="phoneNumber" id="form3Example8"
+                                        <input type="text" name="phoneNumber" id="PhoneNumber"
                                             class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Type</label>
-                                        <input type="text" name="carType" id="form3Example8"
+                                        <input type="text" name="carType" id="CarType"
                                             class="form-control form-control-lg" />
                                     </div>
                                     <div data-mdb-input-init class="form-outline mb-1">
                                         <label class="form-label" for="form3Example8">Car Class</label>
-                                        <input type="text" name="carClass" id="form3Example8"
+                                        <input type="text" name="carClass" id="carClass"
                                             class="form-control form-control-lg" />
                                     </div>
 
@@ -136,7 +136,7 @@
                                 <div class="col-md-6 mb-4 theselect">
                                     <select id="yearselect" name="manufacturingDate" class="form-select"
                                         aria-label="Charger Type">
-                                        <option selected>Select Manufacturing Date</option>
+                                        <option value="">Select Manufacturing Date</option>
 
                                     </select>
                                 </div>
@@ -196,9 +196,9 @@
                     <h5 class="text-white mb-4">Charge Now </h5>
                     <p>Book an appointment to charge your vehicle now</p>
                     <div class="position-relative w-100">
-                        
-                        <a href="login.html"
-                            class="btn btn-primary py-2 position-absolute top-0 start-0 mt-2 me-2">Sign In</a>
+
+                        <a href="login.html" class="btn btn-primary py-2 position-absolute top-0 start-0 mt-2 me-2">Sign
+                            In</a>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,99 @@
                 return;
             }
 
-            // استخدام SweetAlert لإضافة خيار التأكيد أو الإلغاء
+            let location = document.getElementById("locationURL").value;
+            if (location == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your location URL before proceeding.',
+                });
+                return;
+            }
+            if (!/^https:\/\/maps\.app\.goo\.gl\/[A-Za-z0-9]+$/.test(location)) {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please enter a valid Google Maps URL.',
+                });
+                return;
+
+            }
+
+            let CarPlateNumber = document.getElementById("CarPlateNumber").value;
+            if (CarPlateNumber == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your car plate number before proceeding.',
+                });
+                return;
+            }
+            let carnumbercount = CarPlateNumber.length;
+            if (carnumbercount < 1 || carnumbercount > 7) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid car plat number',
+                    text: 'Please enter a valid car plate number. It should be between 1 and 7 characters long.',
+                });
+                return;
+            }
+            if (isNaN(CarPlateNumber)) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Input',
+                    text: 'Please enter a valid numeric value for Car Plate Number.',
+                });
+                return;
+            }
+            let PhoneNumber = document.getElementById("PhoneNumber").value;
+            if (PhoneNumber == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your phone number before proceeding.',
+                });
+                return;
+            }
+            if (!/^(?:\+962|0)?7[789]\d{7}$/.test(PhoneNumber)) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Number',
+                    text: 'Please enter a valid Jordanian phone number. It should start with +962 or 07, followed by (7, 8, or 9), and followed by 7 digits.',
+                });
+                return;
+            }
+
+            let CarType = document.getElementById("CarType").value;
+            if (CarType == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your car type before proceeding.',
+                });
+                return;
+            }
+
+            let carClass = document.getElementById("carClass").value;
+            if (carClass == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your car class before proceeding.',
+                });
+                return;
+            }
+
+            let yearselect = document.getElementById("yearselect").value;
+            if (yearselect == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please fill your Manufacturing Date  before proceeding.',
+                });
+                return;
+            }
+
             const result = await Swal.fire({
                 title: 'Are you sure?',
                 text: "Do you want to book a computer check?",
@@ -261,7 +353,7 @@
             });
 
             if (result.isConfirmed) {
-                // إذا تم اختيار "تأكيد" يقوم بإرسال طلب الحجز
+
                 let url = `https://localhost:44326/api/Booking/BookingComputerCheck/${user}`;
                 let form = document.getElementById("computercheckform");
                 let data = new FormData(form);
@@ -271,14 +363,14 @@
                 });
 
                 if (response.ok) {
-                    // إذا تم الحجز بنجاح
+
                     await Swal.fire({
                         icon: 'success',
                         title: 'Booked!',
                         text: 'Your computer check has been booked successfully.',
                     });
                 } else {
-                    // إذا فشل الحجز
+
                     await Swal.fire({
                         icon: 'error',
                         title: 'Failed!',
@@ -286,7 +378,7 @@
                     });
                 }
             } else {
-                // إذا تم اختيار "إلغاء"
+
                 Swal.fire({
                     icon: 'info',
                     title: 'Cancelled',

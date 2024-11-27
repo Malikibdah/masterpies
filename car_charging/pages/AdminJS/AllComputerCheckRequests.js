@@ -49,7 +49,6 @@ GetAllComputerCheckRequests();
 async function acceptrequest(id) {
   event.preventDefault();
 
-  // تأكيد القبول من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to accept this request?",
@@ -59,7 +58,6 @@ async function acceptrequest(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Booking/AcceptComputerCheckRequest/${id}`;
       let response = await fetch(url, {
@@ -75,7 +73,7 @@ async function acceptrequest(id) {
               title: 'Request accepted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -85,7 +83,6 @@ async function acceptrequest(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Request acceptance canceled',
@@ -98,7 +95,7 @@ async function acceptrequest(id) {
 async function deletrequest(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
+ 
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -108,7 +105,7 @@ async function deletrequest(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
+ 
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Booking/DeleteComputerCheckRequest/${id}`;
       let response = await fetch(url, {
@@ -124,7 +121,7 @@ async function deletrequest(id) {
               title: 'Request deleted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -134,7 +131,7 @@ async function deletrequest(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
+      
       Swal.fire({
           icon: 'info',
           title: 'Deletion canceled',
@@ -182,9 +179,9 @@ async function getComputerRequestByCarNumber() {
 
           <td class="align-middle">
             <a onclick="deletrequest(${element.id})" class="btn btn-link text-danger text-gradient px-3 mb-0" href=""><i
-              class="material-icons">delete</i></a>
+              class="material-icons">delete</i>delete</a>
               <a onclick="acceptrequest(${element.id})" class="btn btn-link text-success px-3 mb-0" href=""><i
-              class="material-icons">check</i></a>
+              class="material-icons">check</i>Accept</a>
           </td>
       </tr>
   `

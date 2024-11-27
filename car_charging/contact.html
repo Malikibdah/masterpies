@@ -155,7 +155,8 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="fw-medium text-uppercase text-primary mb-2">Contact Us</p>
                     <h1 class="display-5 mb-4">If You Have Any Queries, Please Feel Free To Contact Us</h1>
-                    <p class="mb-4">Need assistance with booking or have any questions about our charging stations? Reach out to us!</p>
+                    <p class="mb-4">Need assistance with booking or have any questions about our charging stations?
+                        Reach out to us!</p>
                     <div class="row g-4">
                         <div class="col-6">
                             <div class="d-flex">
@@ -186,25 +187,28 @@
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" id="email"
+                                        placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" name="subject" class="form-control" id="subject"
+                                        placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message"
-                                        style="height: 150px"></textarea>
+                                    <textarea class="form-control" name="message" placeholder="Leave a message here"
+                                        id="message" style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" onclick="addcontactmessage()" type="submit">Send Message</button>
+                                <button class="btn btn-primary py-3 px-5" onclick="addcontactmessage()"
+                                    type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -256,9 +260,9 @@
                     <h5 class="text-white mb-4">Charge Now </h5>
                     <p>Book an appointment to charge your vehicle now</p>
                     <div class="position-relative w-100">
-                        
-                        <a href="login.html"
-                            class="btn btn-primary py-2 position-absolute top-0 start-0 mt-2 me-2">Sign In</a>
+
+                        <a href="login.html" class="btn btn-primary py-2 position-absolute top-0 start-0 mt-2 me-2">Sign
+                            In</a>
                     </div>
                 </div>
             </div>
@@ -291,25 +295,64 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
-      <!-- إضافة مكتبة SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- إضافة مكتبة SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
         async function addcontactmessage() {
-            
+            debugger;
             event.preventDefault();
-            
+
+            let email = document.getElementById("email").value;
+            if (email == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please enter your email.',
+                });
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Email',
+                    text: 'Please enter a valid email address.',
+                });
+                return;
+            }
+
+            let subject = document.getElementById("subject").value;
+            if (subject == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please enter your subject.',
+                });
+                return;
+            }
+            let message = document.getElementById("message").value;
+            if (message == "") {
+                await Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Information',
+                    text: 'Please enter your message.',
+                });
+                return;
+            }
+
+
             let url = "https://localhost:44326/api/User/AddContactMessage";
             let form = document.getElementById("contactform");
             let formData = new FormData(form);
-    
+
             let response = await fetch(url, {
                 method: "POST",
                 body: formData
             });
-    
+
             if (response.ok) {
                 await Swal.fire({
                     icon: 'success',
@@ -326,7 +369,7 @@
             }
         }
     </script>
-    
+
     <script>
         function showLogin() {
             user = localStorage.getItem("userId");
@@ -349,7 +392,7 @@
         showLogin();
         function logout() {
             localStorage.removeItem("userId");
-            
+
         }
     </script>
 </body>

@@ -47,7 +47,6 @@ AllUsers();
 async function DeletUser(id) {
   event.preventDefault();
   
-  // تأكيد الحذف من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -57,7 +56,6 @@ async function DeletUser(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/DeletUser/${id}`;
       let response = await fetch(url, {
@@ -73,7 +71,7 @@ async function DeletUser(id) {
               title: 'User deleted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -83,7 +81,6 @@ async function DeletUser(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Deletion canceled',

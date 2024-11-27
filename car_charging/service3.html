@@ -295,9 +295,17 @@
                 let carnumbercount = CarPlateNumber.length;
                 if (carnumbercount < 1 || carnumbercount > 7) {
                     await Swal.fire({
-                        icon: 'warning',
-                        title: 'Missing Information',
-                        text: 'Please enter a valid car type. It should be between 1 and 7 characters long.',
+                        icon: 'error',
+                        title: 'Invalid car plat number',
+                        text: 'Please enter a valid car plate number. It should be between 1 and 7 characters long.',
+                    });
+                    return;
+                }
+                if (isNaN(CarPlateNumber)) {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid Input',
+                        text: 'Please enter a valid numeric value for Car Plate Number.',
                     });
                     return;
                 }
@@ -313,8 +321,8 @@
                 }
                 if (!/^(?:\+962|0)?7[789]\d{7}$/.test(PhoneNumber)) {
                     await Swal.fire({
-                        icon: 'warning',
-                        title: 'Missing Information',
+                        icon: 'error',
+                        title: 'Invalid Number',
                         text: 'Please enter a valid Jordanian phone number. It should start with +962 or 07, followed by (7, 8, or 9), and followed by 7 digits.',
                     });
                     return;
@@ -329,7 +337,7 @@
                     });
                     return;
                 }
-                
+
                 let date = document.getElementById("date-select").value;
                 if (date == "") {
                     await Swal.fire({

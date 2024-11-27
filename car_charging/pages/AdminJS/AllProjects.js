@@ -27,7 +27,6 @@ AllProjects();
 async function Deletproject(id) {
     event.preventDefault();
 
-    // تأكيد الحذف من المستخدم
     const result = await Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -37,7 +36,6 @@ async function Deletproject(id) {
         cancelButtonText: 'No, cancel!',
     });
 
-    // إذا اختار المستخدم "نعم"
     if (result.isConfirmed) {
         let url = `https://localhost:44326/api/Admin/DeleteProject/${id}`;
         let response = await fetch(url, {
@@ -53,7 +51,7 @@ async function Deletproject(id) {
                 title: 'Project deleted successfully',
                 confirmButtonText: 'OK'
             }).then(() => {
-                window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+                window.location.reload(); 
             });
         } else {
             Swal.fire({
@@ -63,7 +61,6 @@ async function Deletproject(id) {
             });
         }
     } else {
-        // إذا اختار المستخدم "إلغاء"
         Swal.fire({
             icon: 'info',
             title: 'Deletion canceled',

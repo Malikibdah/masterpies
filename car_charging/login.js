@@ -38,23 +38,23 @@ async function Regester() {
   debugger;
   event.preventDefault();
 
-  
+
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let confirmpassword = document.getElementById("confirmpassword").value;
 
-  
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     await Swal.fire({
       icon: 'error',
       title: 'Invalid Email',
-      text: 'Please enter a valid email address.',
+      text: 'Please enter a valid email address like example@example.com',
     });
-    return; 
+    return;
   }
 
-  
+
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordRegex.test(password)) {
     await Swal.fire({
@@ -62,37 +62,45 @@ async function Regester() {
       title: 'Weak Password',
       text: 'Password must be at least 8 characters long, and include letters, numbers, and special characters.',
     });
-    return; 
+    return;
   }
 
-  
+
   if (password !== confirmpassword) {
     await Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'Passwords do not match!',
     });
-    return; 
+    return;
   }
 
-  
+
   let url = "https://localhost:44326/api/User/UserRegester";
   let form = document.getElementById("regesterform");
   let formData = new FormData(form);
 
- 
+
   let response = await fetch(url, {
     method: 'POST',
     body: formData,
   });
+  if (response.status === 400) {
+    await Swal.fire({
+      icon: 'error',
+      title: 'Invalid Email',
+      text: 'This email address is already in use',
 
-  
+    });
+    return;
+  }
+
   if (response.ok) {
     await Swal.fire({
       icon: 'success',
       title: 'Success!',
       text: 'Registered Successfully',
-      
+
     });
     window.location.href = "login.html";
   } else {

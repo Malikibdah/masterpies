@@ -19,6 +19,52 @@ userprofileinfo();
 async function UpdateProfileInfo() {
     debugger
     event.preventDefault();
+
+    let PhoneNumber = document.getElementById("phonenumber").value;
+    if (PhoneNumber == "") {
+        await Swal.fire({
+            icon: 'warning',
+            title: 'Missing Information',
+            text: 'Please fill your phone number before proceeding.',
+        });
+        return;
+    }
+    if (!/^(?:\+962|0)?7[789]\d{7}$/.test(PhoneNumber)) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Invalid Number',
+            text: 'Please enter a valid Jordanian phone number. It should start with +962 or 07, followed by (7, 8, or 9), and followed by 7 digits.',
+        });
+        return;
+    }
+
+    let CarPlateNumber = document.getElementById("carplatenumber").value;
+    if (CarPlateNumber == "") {
+        await Swal.fire({
+            icon: 'warning',
+            title: 'Missing Information',
+            text: 'Please fill your car plate number before proceeding.',
+        });
+        return;
+    }
+    let carnumbercount = CarPlateNumber.length;
+    if (carnumbercount < 1 || carnumbercount > 7) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Invalid car plat number',
+            text: 'Please enter a valid car plat number. It should be between 1 and 7 characters long.',
+        });
+        return;
+    }
+    if (isNaN(CarPlateNumber)) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Invalid Input',
+            text: 'Please enter a valid numeric value for Car Plate Number.',
+        });
+        return;
+    }
+
     let user = localStorage.getItem('userId');
     let url = `https://localhost:44326/api/User/UpdateUserProfile/${user}`;
     let form = document.getElementById("editprofileform");

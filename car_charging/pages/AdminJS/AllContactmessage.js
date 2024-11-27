@@ -21,7 +21,7 @@ async function AllContactmessage() {
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">
-                          <a class="text-success" href= "mailto: ${element.email}"> 
+                          <a class="text-success" href= "https://mail.google.com/mail/?view=cm&fs=1&to=${element.email}" target="_blank"> 
                             Click to Send Mail
                          </a>
                         </span>
@@ -42,7 +42,7 @@ AllContactmessage();
 async function Deletcontact(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
+  
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to delete this contact message?",
@@ -52,7 +52,7 @@ async function Deletcontact(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
+ 
   if (result.isConfirmed) {
       let url1 = `https://localhost:44326/api/Admin/DeletContactMessage/${id}`;
       let response = await fetch(url1, {
@@ -68,7 +68,7 @@ async function Deletcontact(id) {
               title: 'User deleted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -78,7 +78,6 @@ async function Deletcontact(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Deletion canceled',

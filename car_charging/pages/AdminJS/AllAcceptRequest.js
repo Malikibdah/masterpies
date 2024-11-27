@@ -1,11 +1,11 @@
 async function acceptVehicleRequest() {
-    
-    let url = "https://localhost:44326/api/Booking/GetAllAcceptVehiclechargingrequests";
-    let response = await fetch(url);
-    let data = await response.json();
-    let table = document.getElementById("acceptrequestsTable");
-    data.forEach(element => {
-        table.innerHTML += `
+
+  let url = "https://localhost:44326/api/Booking/GetAllAcceptVehiclechargingrequests";
+  let response = await fetch(url);
+  let data = await response.json();
+  let table = document.getElementById("acceptrequestsTable");
+  data.forEach(element => {
+    table.innerHTML += `
              <tr>
                       <td>
                         <div class="d-flex px-2">
@@ -42,8 +42,8 @@ async function acceptVehicleRequest() {
             </tr>
         
         `
-    });
-    
+  });
+
 }
 
 acceptVehicleRequest();
@@ -51,83 +51,89 @@ acceptVehicleRequest();
 async function deletVehicleRequest(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
   const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
-      let url = `https://localhost:44326/api/Booking/DeletVehicleChargingRequest/${id}`;
-      let response = await fetch(url, {
-          method: 'DELETE',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-
-      if (response.ok) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Request deleted successfully',
-              confirmButtonText: 'OK'
-          }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
-          });
-      } else {
-          Swal.fire({
-              icon: 'error',
-              title: 'Failed to delete request',
-              confirmButtonText: 'OK'
-          });
+    let url = `https://localhost:44326/api/Booking/DeletVehicleChargingRequest/${id}`;
+    let response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
       }
-  } else {
-      // إذا اختار المستخدم "إلغاء"
+    });
+
+    if (response.ok) {
       Swal.fire({
-          icon: 'info',
-          title: 'Deletion canceled',
-          confirmButtonText: 'OK'
+        icon: 'success',
+        title: 'Request deleted successfully',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        window.location.reload();
       });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to delete request',
+        confirmButtonText: 'OK'
+      });
+    }
+  } else {
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Deletion canceled',
+      confirmButtonText: 'OK'
+    });
   }
 }
 
 
 async function editVehicleRequest(id) {
-    event.preventDefault();
-    let url2 = `https://localhost:44326/api/Booking/UpdateStatusForVehicleRequest/${id}`;
-    var selectedStatus = document.getElementById(`status1-${id}`).value;
-    let response = await fetch(url2, {
-        method: 'PUT',
-        body: JSON.stringify({status : selectedStatus}),
-        headers: {
-            'Content-Type': 'application/json' 
-        },
+  event.preventDefault();
+  let url2 = `https://localhost:44326/api/Booking/UpdateStatusForVehicleRequest/${id}`;
+  var selectedStatus = document.getElementById(`status1-${id}`).value;
+  let response = await fetch(url2, {
+    method: 'PUT',
+    body: JSON.stringify({ status: selectedStatus }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  if (response.status === 200) {
+    Swal.fire({
+      icon: 'success',
+      title: 'change Status Accepted successfully',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      window.location.reload();
     });
-    if (response.status === 200) {
-        alert("Status reset successfully");
-        
-        window.location.reload();
-    }
-    else {
-        alert("Failed to change Status. Please try again.");
-    }
-    
+  }
+  else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Failed to change Status. Please try again.',
+      confirmButtonText: 'OK'
+    });
+  }
+
 }
 
 
 async function acceptDeliveryChargerRequests() {
-    
-    let url = "https://localhost:44326/api/Booking/GetAcceptAllDeliveryChargerRequests";
-    let response = await fetch(url);
-    let data = await response.json();
-    let table = document.getElementById("acceptrequestsTable");
-    data.forEach(element => {
-        table.innerHTML += `
+
+  let url = "https://localhost:44326/api/Booking/GetAcceptAllDeliveryChargerRequests";
+  let response = await fetch(url);
+  let data = await response.json();
+  let table = document.getElementById("acceptrequestsTable");
+  data.forEach(element => {
+    table.innerHTML += `
              <tr>
                       <td>
                         <div class="d-flex px-2">
@@ -164,8 +170,8 @@ async function acceptDeliveryChargerRequests() {
             </tr>
         
         `
-    });
-    
+  });
+
 }
 
 acceptDeliveryChargerRequests();
@@ -174,83 +180,91 @@ acceptDeliveryChargerRequests();
 async function deletDeliveryRequest(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
+
   const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
-  if (result.isConfirmed) {
-      let url = `https://localhost:44326/api/Booking/DeleteDeliveryChargerRequest/${id}`;
-      let response = await fetch(url, {
-          method: 'DELETE',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
 
-      if (response.ok) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Request deleted successfully',
-              confirmButtonText: 'OK'
-          }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
-          });
-      } else {
-          Swal.fire({
-              icon: 'error',
-              title: 'Failed to delete request',
-              confirmButtonText: 'OK'
-          });
+  if (result.isConfirmed) {
+    let url = `https://localhost:44326/api/Booking/DeleteDeliveryChargerRequest/${id}`;
+    let response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
       }
-  } else {
-      // إذا اختار المستخدم "إلغاء"
+    });
+
+    if (response.ok) {
       Swal.fire({
-          icon: 'info',
-          title: 'Deletion canceled',
-          confirmButtonText: 'OK'
+        icon: 'success',
+        title: 'Request deleted successfully',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        window.location.reload();
       });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to delete request',
+        confirmButtonText: 'OK'
+      });
+    }
+  } else {
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Deletion canceled',
+      confirmButtonText: 'OK'
+    });
   }
 }
 
 
 async function editDeliveryRequest(id) {
-    event.preventDefault();
-    let url2 = `https://localhost:44326/api/Booking/UpdateStatusForDeliveryRequest/${id}`;
-    var selectedStatus = document.getElementById(`status2-${id}`).value;
-    let response = await fetch(url2, {
-        method: 'PUT',
-        body: JSON.stringify({status : selectedStatus}),
-        headers: {
-            'Content-Type': 'application/json' 
-        },
+  event.preventDefault();
+  let url2 = `https://localhost:44326/api/Booking/UpdateStatusForDeliveryRequest/${id}`;
+  var selectedStatus = document.getElementById(`status2-${id}`).value;
+  let response = await fetch(url2, {
+    method: 'PUT',
+    body: JSON.stringify({ status: selectedStatus }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  if (response.status === 200) {
+    Swal.fire({
+      icon: 'success',
+      title: 'change Status Accepted successfully',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      window.location.reload();
     });
-    if (response.status === 200) {
-        alert("Status reset successfully");
-        
-        window.location.reload();
-    }
-    else {
-        alert("Failed to change Status. Please try again.");
-    }
-    
+  }
+  else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Failed to change Status. Please try again.',
+      confirmButtonText: 'OK'
+    });
+  }
+
 }
 
 
 async function acceptComputerCheckRequests() {
-    
-    let url = "https://localhost:44326/api/Booking/GetAcceptAllComputerCheckRequests";
-    let response = await fetch(url);
-    let data = await response.json();
-    let table = document.getElementById("acceptrequestsTable");
-    data.forEach(element => {
-        table.innerHTML += `
+
+  let url = "https://localhost:44326/api/Booking/GetAcceptAllComputerCheckRequests";
+  let response = await fetch(url);
+  let data = await response.json();
+  let table = document.getElementById("acceptrequestsTable");
+  data.forEach(element => {
+    table.innerHTML += `
              <tr>
                       <td>
                         <div class="d-flex px-2">
@@ -287,8 +301,8 @@ async function acceptComputerCheckRequests() {
             </tr>
         
         `
-    });
-    
+  });
+
 }
 
 acceptComputerCheckRequests();
@@ -296,71 +310,75 @@ acceptComputerCheckRequests();
 async function deletComputerRequest(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
   const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
-      let url = `https://localhost:44326/api/Booking/DeleteComputerCheckRequest/${id}`;
-      let response = await fetch(url, {
-          method: 'DELETE',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-
-      if (response.ok) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Request deleted successfully',
-              confirmButtonText: 'OK'
-          }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
-          });
-      } else {
-          Swal.fire({
-              icon: 'error',
-              title: 'Failed to delete request',
-              confirmButtonText: 'OK'
-          });
+    let url = `https://localhost:44326/api/Booking/DeleteComputerCheckRequest/${id}`;
+    let response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
       }
-  } else {
-      // إذا اختار المستخدم "إلغاء"
+    });
+
+    if (response.ok) {
       Swal.fire({
-          icon: 'info',
-          title: 'Deletion canceled',
-          confirmButtonText: 'OK'
+        icon: 'success',
+        title: 'Request deleted successfully',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        window.location.reload();
       });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to delete request',
+        confirmButtonText: 'OK'
+      });
+    }
+  } else {
+    Swal.fire({
+      icon: 'info',
+      title: 'Deletion canceled',
+      confirmButtonText: 'OK'
+    });
   }
 }
 
 
-async function editDelivereditComputerRequestyRequest(id) {
-    event.preventDefault();
-    let url2 = `https://localhost:44326/api/Booking/UpdateStatusForComputerRequest/${id}`;
-    var selectedStatus = document.getElementById(`status3-${id}`).value;
-    let response = await fetch(url2, {
-        method: 'PUT',
-        body: JSON.stringify({status : selectedStatus}),
-        headers: {
-            'Content-Type': 'application/json' 
-        },
+async function editComputerRequest(id) {
+  debugger;
+  event.preventDefault();
+  let url2 = `https://localhost:44326/api/Booking/UpdateStatusForComputerRequest/${id}`;
+  var selectedStatus = document.getElementById(`status3-${id}`).value;
+  let response = await fetch(url2, {
+    method: 'PUT',
+    body: JSON.stringify({ status: selectedStatus }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  if (response.status === 200) {
+    await Swal.fire({
+      icon: 'success',
+      title: 'change Status Accepted successfully',
+      confirmButtonText: 'OK'
+    })
+  }
+  else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Failed to change Status. Please try again.',
+      confirmButtonText: 'OK'
     });
-    if (response.status === 200) {
-        alert("Status reset successfully");
-        
-        window.location.reload();
-    }
-    else {
-        alert("Failed to change Status. Please try again.");
-    }
-    
+  }
+
 }
 

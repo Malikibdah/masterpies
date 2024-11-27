@@ -1,6 +1,13 @@
 async function AddProject() {
     debugger
     event.preventDefault();
+
+    let ProjectName = document.getElementById("ProjectName").value;
+    if (ProjectName == "") {
+        alert("Please fill Project Name before proceeding.");
+        return;
+    }
+
     let url = "https://localhost:44326/api/Admin/AddNewProject";
     let form = document.getElementById("addprojectform");
     let formData = new FormData(form);

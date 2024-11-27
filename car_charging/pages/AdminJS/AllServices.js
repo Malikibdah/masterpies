@@ -36,7 +36,6 @@ function EditServices(id) {
 async function HiddenServices(id) {
   event.preventDefault();
 
-  // تأكيد الإخفاء من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to hide this service?",
@@ -46,7 +45,6 @@ async function HiddenServices(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/HiddenServiceById/${id}`;
       let response = await fetch(url, {
@@ -62,7 +60,7 @@ async function HiddenServices(id) {
               title: 'Service Hidden Successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              location.reload(); 
           });
       } else {
           Swal.fire({
@@ -72,7 +70,6 @@ async function HiddenServices(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Hiding canceled',
@@ -85,7 +82,6 @@ async function HiddenServices(id) {
 async function UnhiddenServices(id) {
   event.preventDefault();
 
-  // تأكيد الإظهار من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to unhide this service?",
@@ -95,7 +91,6 @@ async function UnhiddenServices(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/UnhiddenServiceById/${id}`;
       let response = await fetch(url, {
@@ -111,7 +106,7 @@ async function UnhiddenServices(id) {
               title: 'Service Unhidden Successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              location.reload(); 
           });
       } else {
           Swal.fire({
@@ -121,7 +116,6 @@ async function UnhiddenServices(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Unhiding canceled',

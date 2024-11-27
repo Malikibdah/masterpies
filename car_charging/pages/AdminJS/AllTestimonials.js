@@ -60,7 +60,6 @@ AllTestimonials();
 async function DeletTestimonial(id) {
   event.preventDefault();
 
-  // تأكيد الحذف من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to delete this testimonial?",
@@ -70,7 +69,6 @@ async function DeletTestimonial(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/DeleteTestimonial/${id}`;
       let response = await fetch(url, {
@@ -86,7 +84,7 @@ async function DeletTestimonial(id) {
               title: 'Testimonial deleted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -96,7 +94,7 @@ async function DeletTestimonial(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
+      
       Swal.fire({
           icon: 'info',
           title: 'Deletion canceled',
@@ -109,7 +107,6 @@ async function DeletTestimonial(id) {
 async function AcceptTestimonial(id) {
   event.preventDefault();
 
-  // تأكيد القبول من المستخدم
   const result = await Swal.fire({
       title: 'Are you sure?',
       text: "Do you really want to accept this testimonial?",
@@ -119,7 +116,6 @@ async function AcceptTestimonial(id) {
       cancelButtonText: 'No, cancel!',
   });
 
-  // إذا اختار المستخدم "نعم"
   if (result.isConfirmed) {
       let url = `https://localhost:44326/api/Admin/AcceptTestimonial/${id}`;
       let response = await fetch(url, {
@@ -135,7 +131,7 @@ async function AcceptTestimonial(id) {
               title: 'Testimonial accepted successfully',
               confirmButtonText: 'OK'
           }).then(() => {
-              window.location.reload(); // إعادة تحميل الصفحة بعد الضغط على "OK"
+              window.location.reload(); 
           });
       } else {
           Swal.fire({
@@ -145,7 +141,6 @@ async function AcceptTestimonial(id) {
           });
       }
   } else {
-      // إذا اختار المستخدم "إلغاء"
       Swal.fire({
           icon: 'info',
           title: 'Acceptance canceled',

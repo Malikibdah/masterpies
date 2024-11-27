@@ -3,14 +3,24 @@ async function SendOptToEmail() {
     let url = "https://localhost:44326/api/PasswordReset/request-reset";
     let form = document.getElementById("otpform");
     let email = document.getElementById("email").value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Invalid Email',
+            text: 'Please enter a valid email address.',
+        });
+        return;
+    }
+
     sessionStorage.setItem("useremail", email);
     let formData = new FormData(form);
-    
+
     let response = await fetch(url, {
         method: 'POST',
         body: formData
     });
-    
+
     if (response.status == 200) {
         await Swal.fire({
             icon: 'success',

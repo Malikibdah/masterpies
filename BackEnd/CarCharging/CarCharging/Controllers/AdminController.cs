@@ -94,7 +94,12 @@ namespace CarCharging.Controllers
             {
                 addEmployeeDTO.Image.CopyTo(steam);
             }
+            var existingemployee = _db.Employees.FirstOrDefault(e => e.EmployeeId == addEmployeeDTO.EmployeeId);
 
+            if (existingemployee != null)
+            {
+                return Conflict("EmployeeId already exists.");
+            }
             var newEmployee = new Employee
             {
                 EmpName = addEmployeeDTO.EmpName,
@@ -134,6 +139,14 @@ namespace CarCharging.Controllers
                 }
 
             }
+
+            var existingemployee = _db.Employees.FirstOrDefault(e => e.EmployeeId == updateEmployeeDTO.EmployeeId && e.Id != id);
+
+            if (existingemployee != null)
+            {
+                return Conflict("EmployeeId already exists.");
+            }
+            
             var c = _db.Employees.FirstOrDefault(m => m.Id == id);
             c.EmpName = updateEmployeeDTO.EmpName ?? c.EmpName;
             c.EmployeeId = updateEmployeeDTO.EmployeeId ?? c.EmployeeId;
@@ -711,7 +724,7 @@ namespace CarCharging.Controllers
         [HttpGet("GetNumberOfUsers")]
         public IActionResult GetNumberOfUsers()
         {
-            var usersCount = _db.Employees.Count();
+            var usersCount = _db.Users.Count();
             return Ok(usersCount);
         }
 
